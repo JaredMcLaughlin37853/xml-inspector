@@ -1,0 +1,1 @@
+"""Test data for XML Inspector tests."""

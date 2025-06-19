@@ -1,6 +1,6 @@
 # XML Inspector Examples
 
-This directory contains example files demonstrating how to use the XML Inspector tool.
+This directory contains example files demonstrating how to use the XML Inspector tool (Python version).
 
 ## Files Overview
 
@@ -10,6 +10,18 @@ This directory contains example files demonstrating how to use the XML Inspector
 ### Settings Documents
 - `settings/standard-device-settings.json` - Standard settings that apply to all devices
 - `settings/project-specific-settings.yaml` - Additional settings specific to a particular project
+
+## Installation
+
+First, install the Python package:
+
+```bash
+# Install in development mode
+pip install -e .
+
+# Or install from requirements
+pip install -r requirements.txt
+```
 
 ## Usage Examples
 
@@ -35,6 +47,17 @@ xml-inspector inspect \
   --output report.json
 ```
 
+### Multiple XML Files
+Inspect multiple XML files at once:
+
+```bash
+xml-inspector inspect \
+  --xml examples/xml-files/device-config.xml \
+  --xml examples/xml-files/another-device.xml \
+  --standard examples/settings/standard-device-settings.json \
+  --type device-config
+```
+
 ### Generate HTML Report
 Create an HTML report for easier viewing:
 
@@ -54,6 +77,46 @@ Verify that a settings document is properly formatted:
 ```bash
 xml-inspector validate-settings \
   --file examples/settings/standard-device-settings.json
+```
+
+### Using as Python Library
+
+You can also use XML Inspector as a Python library:
+
+```python
+from xml_inspector import XmlInspector, InspectionOptions
+
+inspector = XmlInspector()
+
+options = InspectionOptions(
+    xml_files=["examples/xml-files/device-config.xml"],
+    standard_settings_file="examples/settings/standard-device-settings.json",
+    entity_type="device-config",
+    output_path="report.json",
+    output_format="json"
+)
+
+report = inspector.inspect(options)
+print(f"Total checks: {report.summary.total_checks}")
+print(f"Passed: {report.summary.passed}")
+print(f"Failed: {report.summary.failed}")
+```
+
+## Development
+
+### Running Tests
+```bash
+pytest
+```
+
+### Code Formatting
+```bash
+black xml_inspector tests
+```
+
+### Type Checking
+```bash
+mypy xml_inspector
 ```
 
 ## Expected Results
