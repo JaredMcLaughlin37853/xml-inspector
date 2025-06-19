@@ -1,0 +1,49 @@
+entityType: device-config
+metadata:
+  version: "1.0.0"
+  description: "Project-specific settings for Data Center 1 deployment"
+  author: "Project Team Alpha"
+
+settings:
+  # Override standard settings for this specific project
+  - name: device-location
+    xpath: //metadata/location/text()
+    expectedValue: "Data Center 1"
+    description: "Device must be located in Data Center 1"
+    type: string
+    required: true
+
+  - name: remote-syslog-server
+    xpath: //system/logging/remote-server/text()
+    expectedValue: "syslog.company.com"
+    description: "Remote syslog server for centralized logging"
+    type: string
+    required: true
+
+  - name: snmp-community
+    xpath: //system/monitoring/snmp/community/text()
+    expectedValue: "public"
+    description: "SNMP community string"
+    type: string
+    required: true
+
+  # Additional project-specific requirements
+  - name: secondary-interface-disabled
+    xpath: //network/interfaces/ethernet[@id='eth1']/enabled/text()
+    expectedValue: false
+    description: "Secondary interface should be disabled for this project"
+    type: boolean
+    required: true
+
+  - name: dns-secondary
+    xpath: //network/dns/secondary/text()
+    expectedValue: "8.8.4.4"
+    description: "Secondary DNS server"
+    type: string
+    required: true
+
+  - name: device-name-format
+    xpath: //metadata/name/text()
+    description: "Device name should follow naming convention"
+    type: string
+    required: true

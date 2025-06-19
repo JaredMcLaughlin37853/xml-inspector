@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<device id="device001" type="router">
+  <metadata>
+    <name>Main Router</name>
+    <location>Data Center 1</location>
+    <firmware>v2.1.3</firmware>
+  </metadata>
+  <network>
+    <interfaces>
+      <ethernet id="eth0">
+        <ip>192.168.1.1</ip>
+        <netmask>255.255.255.0</netmask>
+        <gateway>192.168.1.254</gateway>
+        <enabled>true</enabled>
+      </ethernet>
+      <ethernet id="eth1">
+        <ip>10.0.0.1</ip>
+        <netmask>255.255.255.0</netmask>
+        <enabled>false</enabled>
+      </ethernet>
+    </interfaces>
+    <dns>
+      <primary>8.8.8.8</primary>
+      <secondary>8.8.4.4</secondary>
+    </dns>
+    <ports>
+      <management>22</management>
+      <web>80</web>
+      <secure-web>443</secure-web>
+    </ports>
+  </network>
+  <security>
+    <authentication>
+      <method>local</method>
+      <timeout>1800</timeout>
+    </authentication>
+    <encryption>
+      <algorithm>AES256</algorithm>
+      <enabled>true</enabled>
+    </encryption>
+    <firewall>
+      <enabled>true</enabled>
+      <default-policy>deny</default-policy>
+    </firewall>
+  </security>
+  <system>
+    <logging>
+      <level>info</level>
+      <remote-server>syslog.company.com</remote-server>
+      <enabled>true</enabled>
+    </logging>
+    <monitoring>
+      <snmp>
+        <enabled>true</enabled>
+        <community>public</community>
+        <port>161</port>
+      </snmp>
+    </monitoring>
+  </system>
+</device>

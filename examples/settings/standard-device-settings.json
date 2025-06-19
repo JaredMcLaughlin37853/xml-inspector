@@ -1,0 +1,153 @@
+{
+  "entityType": "device-config",
+  "metadata": {
+    "version": "1.0.0",
+    "description": "Standard device configuration settings for network infrastructure",
+    "author": "IT Operations Team"
+  },
+  "settings": [
+    {
+      "name": "device-type",
+      "xpath": "//device/@type",
+      "expectedValue": "router",
+      "description": "Device type classification",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "firmware-version",
+      "xpath": "//metadata/firmware/text()",
+      "description": "Current firmware version",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "primary-interface-ip",
+      "xpath": "//network/interfaces/ethernet[@id='eth0']/ip/text()",
+      "expectedValue": "192.168.1.1",
+      "description": "Primary interface IP address",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "primary-interface-enabled",
+      "xpath": "//network/interfaces/ethernet[@id='eth0']/enabled/text()",
+      "expectedValue": true,
+      "description": "Primary interface must be enabled",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "name": "dns-primary",
+      "xpath": "//network/dns/primary/text()",
+      "expectedValue": "8.8.8.8",
+      "description": "Primary DNS server",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "management-port",
+      "xpath": "//network/ports/management/text()",
+      "expectedValue": 22,
+      "description": "SSH management port",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "web-port",
+      "xpath": "//network/ports/web/text()",
+      "expectedValue": 80,
+      "description": "HTTP web interface port",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "secure-web-port",
+      "xpath": "//network/ports/secure-web/text()",
+      "expectedValue": 443,
+      "description": "HTTPS web interface port",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "authentication-method",
+      "xpath": "//security/authentication/method/text()",
+      "expectedValue": "local",
+      "description": "Authentication method",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "authentication-timeout",
+      "xpath": "//security/authentication/timeout/text()",
+      "expectedValue": 1800,
+      "description": "Authentication timeout in seconds",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "encryption-enabled",
+      "xpath": "//security/encryption/enabled/text()",
+      "expectedValue": true,
+      "description": "Encryption must be enabled",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "name": "encryption-algorithm",
+      "xpath": "//security/encryption/algorithm/text()",
+      "expectedValue": "AES256",
+      "description": "Encryption algorithm",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "firewall-enabled",
+      "xpath": "//security/firewall/enabled/text()",
+      "expectedValue": true,
+      "description": "Firewall must be enabled",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "name": "firewall-default-policy",
+      "xpath": "//security/firewall/default-policy/text()",
+      "expectedValue": "deny",
+      "description": "Firewall default policy",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "logging-enabled",
+      "xpath": "//system/logging/enabled/text()",
+      "expectedValue": true,
+      "description": "Logging must be enabled",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "name": "logging-level",
+      "xpath": "//system/logging/level/text()",
+      "expectedValue": "info",
+      "description": "Minimum logging level",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "snmp-enabled",
+      "xpath": "//system/monitoring/snmp/enabled/text()",
+      "expectedValue": true,
+      "description": "SNMP monitoring must be enabled",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "name": "snmp-port",
+      "xpath": "//system/monitoring/snmp/port/text()",
+      "expectedValue": 161,
+      "description": "SNMP port",
+      "type": "number",
+      "required": true
+    }
+  ]
+}
