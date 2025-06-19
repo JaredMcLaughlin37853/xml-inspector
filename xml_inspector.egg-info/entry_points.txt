@@ -1,0 +1,2 @@
+[console_scripts]
+xml-inspector = xml_inspector.cli:main

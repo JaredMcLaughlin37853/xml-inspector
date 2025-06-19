@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: xml-inspector
+Version: 1.0.0
+Summary: A quality assurance tool for XML files that validates configuration settings against standardized requirements
+Home-page: https://github.com/your-username/xml-inspector
+Author: 
+Author-email: 
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Text Processing :: Markup :: XML
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: lxml>=4.9.0
+Requires-Dist: PyYAML>=6.0
+Requires-Dist: click>=8.0.0
+Requires-Dist: colorama>=0.4.0
+Requires-Dist: jinja2>=3.1.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: black>=22.0.0; extra == "dev"
+Requires-Dist: flake8>=5.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: types-PyYAML; extra == "dev"
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# xml-inspector
