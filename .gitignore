@@ -70,3 +70,6 @@ report.json
 report.html
 failure-report.html
 programmatic-report.json
+
+# Working Directory
+working/

@@ -1,0 +1,4756 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RTACModule>
+  <Device>
+    <ExportSource>
+      <Schema>35</Schema>
+      <DeviceMOT>3530</DeviceMOT>
+    </ExportSource>
+    <Name>SATEC_MULTIDROP</Name>
+    <Manufacturer>Any</Manufacturer>
+    <Model>Other</Model>
+    <Connection>
+      <Protocol>DNPClient</Protocol>
+      <ConnectionType>Multidrop</ConnectionType>
+      <SettingPages>
+        <SettingPage>
+          <Name>Settings</Name>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Client DNP Address</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Server DNP Address</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>1</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Integrity Poll Period</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>5000</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Class 1,2,3 Polling Period</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Poll Timeout</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>2000</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Number of Poll Retries</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>3</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Serial Communications Port</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>Com_11</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Serial Communications Port Type</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>EIA232</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Baud Rate</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>9600</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Data Bits</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>8</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Parity (None, Even, Odd)</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>None</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Number of Stop Bits</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>1</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Enable Port Auxiliary Power</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Full Duplex</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>UTC Offset</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>DST Enabled</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Output Control Type</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>Select Before Operate</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Maximum Binary Operations</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>10</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Maximum Analog Operations</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>10</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Default Analog Output Variation</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Automatic Event Poll Delay</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Enable Class1 Unsolicited</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Enable Class2 Unsolicited</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Enable Class3 Unsolicited</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Freeze Counter Request Type</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>Immediate Freeze</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Freeze Counter Request Time 1</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>OFF</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Freeze Counter Request Time 2</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>OFF</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Freeze Counter Request Time 3</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>OFF</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Freeze Counter Request Time 4</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>OFF</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Slow Poll Mode Multiplier</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>5</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Maximum Application Layer Fragment Size (Transmitted)</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>249</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Automatically Respond to IIN Class 1</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Automatically Respond to IIN Class 2</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Automatically Respond to IIN Class 3</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Automatically Respond to IIN Need Time</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Automatically Respond to IIN Restart</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Disable Unsolicited on Startup</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>RTS Control</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>Switched</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>RTS Preamble</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>10</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>RTS Postamble</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Transmit Minimum Delay</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>50</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Transmit Maximum Delay</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>50</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Minimum Inter-Frame Delay</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Modem Connected</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Modem Carrier Detect</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>CTS</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Modem Startup String</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value><![CDATA[E0X0&D0S0=4]]></Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Phone Number 1</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Phone Number 2</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Phone 1 Retry Attempts</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>5</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Phone 2 Retry Attempts</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>5</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Time to Attempt Dial</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>60</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Time Between Dial-Out Attempts</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>120</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Minutes to Port Timeout</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>15</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Data Link Timeout</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Data Link Retries</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Leap Seconds Known</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Clock Fail</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Clock Not Synchronized</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>Time Accuracy</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>unspecified</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>DST System Settings</Value>
+            </Setting>
+            <Setting>
+              <Column>Value</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>DST Offset</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>DST Start Week-of-Month</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>Second</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>DST Start Day-of-Week</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>Sunday</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>DST Start Month</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>March</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>DST Start Time</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>02:00</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>DST Stop Week-of-Month</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>First</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>DST Stop Day-of-Week</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>Sunday</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>DST Stop Month</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>November</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+          <Row>
+            <Setting enabled="false">
+              <Column>Setting</Column>
+              <Value>DST Stop Time</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Value</Column>
+              <Value>02:00</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value />
+            </Setting>
+          </Row>
+        </SettingPage>
+        <SettingPage>
+          <Name>Binary Inputs</Name>
+        </SettingPage>
+        <SettingPage>
+          <Name>Double Bit Inputs</Name>
+        </SettingPage>
+        <SettingPage>
+          <Name>Binary Outputs</Name>
+        </SettingPage>
+        <SettingPage>
+          <Name>Counters</Name>
+        </SettingPage>
+        <SettingPage>
+          <Name>Analog Inputs</Name>
+          <Commands>
+            <AddItems>
+              <Start>0</Start>
+              <Quantity>24</Quantity>
+            </AddItems>
+          </Commands>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00000_KV_PH_A</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00001_KV_PH_B</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>1</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00002_KV_PH_C</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00003_AMPS_PH_A</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>3</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00004_AMPS_PH_B</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>4</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00005_AMPS_PH_C</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>5</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00006_KW_PH_A</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>6</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00007_KW_PH_B</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>7</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00008_KW_PH_C</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>8</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00009_KVAR_PH_A</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>9</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00010_KVAR_PH_B</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>10</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00011_KVAR_PH_C</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>11</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00012_KVA_PH_A</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>12</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00013_KVA_PH_B</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>13</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00014_KVA_PH_C</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>14</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00015_PF_PH_A</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>15</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00016_PF_PH_B</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>16</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00017_PF_PH_C</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>17</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00018_TOTAL_PF</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>18</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00019_TOTAL_KW</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>19</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00020_TOTAL_KVAR</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>20</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00021_TOTAL_KVA</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>21</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00022_NEUT_CURRENT</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>22</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Enable</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Name</Column>
+              <Value>SATEC_MULTIDROP_DNP.AI_00023_FREQ</Value>
+            </Setting>
+            <Setting>
+              <Column>Point Number</Column>
+              <Value>23</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Type</Column>
+              <Value>MV</Value>
+            </Setting>
+            <Setting>
+              <Column>Tag Alias</Column>
+              <Value></Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Status Value</Column>
+              <Value></Value>
+            </Setting>
+            <Setting>
+              <Column>Inst Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Magnitude</Column>
+              <Value>0</Value>
+            </Setting>
+            <Setting>
+              <Column>Deadband</Column>
+              <Value>100</Value>
+            </Setting>
+            <Setting>
+              <Column>Zero Deadband</Column>
+              <Value>2</Value>
+            </Setting>
+            <Setting>
+              <Column>Max Value</Column>
+              <Value>1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>H H Limit</Column>
+              <Value>1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>H Limit</Column>
+              <Value>1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L Limit</Column>
+              <Value>-1e+35</Value>
+            </Setting>
+            <Setting>
+              <Column>L L Limit</Column>
+              <Value>-1e+36</Value>
+            </Setting>
+            <Setting>
+              <Column>Min Value</Column>
+              <Value>-1e+37</Value>
+            </Setting>
+            <Setting>
+              <Column>Comment</Column>
+              <Value></Value>
+            </Setting>
+          </Row>
+        </SettingPage>
+        <SettingPage>
+          <Name>Analog Outputs</Name>
+        </SettingPage>
+        <SettingPage>
+          <Name>Datasets</Name>
+        </SettingPage>
+        <SettingPage>
+          <Name>POU Pin Settings</Name>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Auto_Respond_to_IIN_1_1_Class_1</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>TRUE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Auto_Respond_to_IIN_1_2_Class_2</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>TRUE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Auto_Respond_to_IIN_1_3_Class_3</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>TRUE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Auto_Respond_to_IIN_1_4_Need_Time</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Auto_Respond_to_IIN_1_7_Restart</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>TRUE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Buffer_Overflow</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Class_1_Unsolicited_Enabled</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Class_2_Unsolicited_Enabled</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Class_3_Unsolicited_Enabled</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Control_Response_Code_ALREADY_ACTIVE</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Control_Response_Code_AUTOMATION_INHIBIT</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Control_Response_Code_FORMAT_ERROR</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Control_Response_Code_HARDWARE_ERROR</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Control_Response_Code_LOCAL</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Control_Response_Code_NO_SELECT</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Control_Response_Code_NOT_AUTHORIZED</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Control_Response_Code_NOT_SUPPORTED</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Control_Response_Code_OUT_OF_RANGE</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Control_Response_Code_PROCESSING_LIMITED</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Control_Response_Code_TIMEOUT</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Control_Response_Code_TOO_MANY_OBJECTS</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Control_Response_Code_UNDEFINED</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Controls_Disabled</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Data_Link_Timeout_Count</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>UDINT</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>0</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Direct_Transparent_Connection</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Disable_Controls</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting>
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Disable_Tag_Updates</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting>
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>EN</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting>
+              <Column>Default Value</Column>
+              <Value>TRUE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Enable_Class_1_Unsolicited</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Enable_Class_2_Unsolicited</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Enable_Class_3_Unsolicited</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>ENO</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>IIN_1_1_Class_1</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>IIN_1_2_Class_2</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>IIN_1_3_Class_3</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>IIN_1_4_Need_Time</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>IIN_1_5_Local</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>IIN_1_6_Device_Trouble</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>IIN_1_7_Restart</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>IIN_2_3_Buffer_Overflow</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Incoming_Event_Buffer_Empty</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Invalid_Function_Block_Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Issue_Time_Sync</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting>
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Issue_Time_Sync_Period</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>TIME</Value>
+            </Setting>
+            <Setting>
+              <Column>Default Value</Column>
+              <Value>T#120M</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Message_Failure</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>TRUE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Message_Failure_Count</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>UDINT</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>0</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Message_Received_Count</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>UDINT</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>0</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Message_Sent_Count</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>UDINT</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>0</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Message_Success_Count</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>UDINT</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>0</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Offline</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Poll_Events_Obj_60_Cls_123</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting>
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Poll_Events_Obj_60_Cls_123_DN</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Poll_Events_Obj_60_Cls_123_Period</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>TIME</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>T#0MS</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Poll_Integrity_Obj_60_Cls_1230</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting>
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Poll_Integrity_Obj_60_Cls_1230_DN</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Poll_Integrity_Obj_60_Cls_1230_Period</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>TIME</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>T#5000MS</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Reset_Statistics</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting>
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Response_Timeout_Count</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>UDINT</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>0</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Set_ClockFail</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>False</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Set_ClockNotSynchronized</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Input</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>TRUE</Value>
+            </Setting>
+          </Row>
+          <Row>
+            <Setting>
+              <Column>Visible</Column>
+              <Value>True</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Name</Column>
+              <Value>Slow_Poll_Mode_Enabled</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Type</Column>
+              <Value>Output</Value>
+            </Setting>
+            <Setting>
+              <Column>Pin Point Type</Column>
+              <Value>BOOL</Value>
+            </Setting>
+            <Setting enabled="false">
+              <Column>Default Value</Column>
+              <Value>FALSE</Value>
+            </Setting>
+          </Row>
+        </SettingPage>
+      </SettingPages>
+      <ControllerPOU><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Single xml:space="preserve" Type="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" Method="IArchivable">
+  <Single Name="SpecialFunc" Type="{0db3d7bb-cde0-4416-9a7b-ce49a0124323}">None</Single>
+  <Single Name="Implementation" Type="{32d3375e-c010-41e2-9e43-b2fbf4f2b374}" Method="IArchivable">
+    <Single Name="Items" Type="{cd57ba20-558b-4b98-96c1-73c6000c3087}" Method="IArchivable">
+      <List2 Name="InnerList">
+        <Single Type="{f5becf35-b1f3-4274-b411-81d4b63a1516}" Method="IArchivable">
+          <Single Name="Inputs" Type="{cd57ba20-558b-4b98-96c1-73c6000c3087}" Method="IArchivable">
+            <List2 Name="InnerList">
+              <Single Type="{c994f6e0-311a-4a1c-bc38-75fe34892406}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="IsExtensiblePin" Type="bool">False</Single>
+                <Single Name="ProcessValue" Type="string"></Single>
+                <Single Name="Access" Type="{88453c7d-d652-4a27-a1b0-a1953be49a5c}">None</Single>
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">11</Single>
+              </Single>
+              <Single Type="{c994f6e0-311a-4a1c-bc38-75fe34892406}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="IsExtensiblePin" Type="bool">False</Single>
+                <Single Name="ProcessValue" Type="string"></Single>
+                <Single Name="Access" Type="{88453c7d-d652-4a27-a1b0-a1953be49a5c}">None</Single>
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">13</Single>
+              </Single>
+              <Single Type="{c994f6e0-311a-4a1c-bc38-75fe34892406}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="IsExtensiblePin" Type="bool">False</Single>
+                <Single Name="ProcessValue" Type="string"></Single>
+                <Single Name="Access" Type="{88453c7d-d652-4a27-a1b0-a1953be49a5c}">None</Single>
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">15</Single>
+              </Single>
+              <Single Type="{c994f6e0-311a-4a1c-bc38-75fe34892406}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="IsExtensiblePin" Type="bool">False</Single>
+                <Single Name="ProcessValue" Type="string"></Single>
+                <Single Name="Access" Type="{88453c7d-d652-4a27-a1b0-a1953be49a5c}">None</Single>
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">17</Single>
+              </Single>
+            </List2>
+          </Single>
+          <Single Name="Outputs" Type="{cd57ba20-558b-4b98-96c1-73c6000c3087}" Method="IArchivable">
+            <List2 Name="InnerList">
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">19</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">21</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">23</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">25</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">27</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">29</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">31</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">33</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">35</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">37</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">39</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">41</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">43</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">45</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">47</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">49</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">51</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">53</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">55</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">57</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">59</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">61</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">63</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">65</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">67</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">69</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">71</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">73</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">75</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">77</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">79</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">81</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">83</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">85</Single>
+              </Single>
+              <Single Type="{65582d84-cf18-4ca0-be59-bf5a3d00b8f8}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Negated" Type="bool">False</Single>
+                <Single Name="SetReset" Type="{24449d48-c96a-49c4-b9d1-a4ea34aedce3}">None</Single>
+                <Single Name="SetResetRef" Type="{233bc97c-69fe-4d29-b40e-a9a9b854044e}">None</Single>
+                <Single Name="PretendsToBeConnected" Type="bool">False</Single>
+                <Single Name="Id" Type="long">87</Single>
+              </Single>
+            </List2>
+          </Single>
+          <Single Name="Texts" Type="{cd57ba20-558b-4b98-96c1-73c6000c3087}" Method="IArchivable">
+            <List2 Name="InnerList">
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">EN</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">12</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Disable_Tag_Updates</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">14</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Disable_Controls</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">16</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Reset_Statistics</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">18</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">ENO</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">20</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Offline</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">22</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Message_Sent_Count</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">24</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Message_Received_Count</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">26</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Message_Failure</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">28</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Message_Failure_Count</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">30</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Message_Success_Count</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">32</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Response_Timeout_Count</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">34</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Data_Link_Timeout_Count</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">36</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Buffer_Overflow</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">38</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Invalid_Function_Block_Input</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">40</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Controls_Disabled</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">42</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Slow_Poll_Mode_Enabled</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">44</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">IIN_1_1_Class_1</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">46</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">IIN_1_2_Class_2</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">48</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">IIN_1_3_Class_3</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">50</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">IIN_1_4_Need_Time</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">52</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">IIN_1_5_Local</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">54</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">IIN_1_6_Device_Trouble</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">56</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">IIN_1_7_Restart</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">58</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">IIN_2_3_Buffer_Overflow</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">60</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Control_Response_Code_TIMEOUT</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">62</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Control_Response_Code_NO_SELECT</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">64</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Control_Response_Code_FORMAT_ERROR</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">66</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Control_Response_Code_NOT_SUPPORTED</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">68</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Control_Response_Code_ALREADY_ACTIVE</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">70</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Control_Response_Code_HARDWARE_ERROR</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">72</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Control_Response_Code_LOCAL</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">74</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Control_Response_Code_TOO_MANY_OBJECTS</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">76</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Control_Response_Code_NOT_AUTHORIZED</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">78</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Control_Response_Code_AUTOMATION_INHIBIT</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">80</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Control_Response_Code_PROCESSING_LIMITED</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">82</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Control_Response_Code_UNDEFINED</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">84</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Control_Response_Code_OUT_OF_RANGE</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">86</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">Direct_Transparent_Connection</Single>
+                <Single Name="Modifiable" Type="bool">True</Single>
+                <Single Name="Id" Type="long">88</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">SATEC_MULTIDROP_DNP_POU_TYPE</Single>
+                <Single Name="Modifiable" Type="bool">False</Single>
+                <Single Name="Id" Type="long">9</Single>
+              </Single>
+              <Single Type="{72f2b13f-5349-4a8a-bbe6-2bccf3f42179}" Method="IArchivable">
+                <Single Name="Bounds" Type="string">0, 0, 0, 0</Single>
+                <Null Name="ElementGroupId" />
+                <Single Name="Text" Type="string">SATEC_MULTIDROP_DNP_POU</Single>
+                <Single Name="Modifiable" Type="bool">False</Single>
+                <Single Name="Id" Type="long">10</Single>
+              </Single>
+            </List2>
+          </Single>
+          <Single Name="Parameters" Type="{cd57ba20-558b-4b98-96c1-73c6000c3087}" Method="IArchivable">
+            <List2 Name="InnerList" />
+          </Single>
+          <Null Name="PreparedParameters" />
+          <Single Name="PageArea" Type="int">0</Single>
+          <Single Name="Bounds" Type="string">3, 0, 0, 0</Single>
+          <Null Name="ElementGroupId" />
+          <Single Name="EnEno" Type="bool">False</Single>
+          <Single Name="KindOfCall" Type="{77f43dfe-ca6a-4869-828f-7609d8ed6ea6}">FunctionBlock</Single>
+          <Single Name="ContainsExtensibleInputs" Type="bool">False</Single>
+          <Single Name="Forced" Type="bool">False</Single>
+          <Single Name="IsFeedbackStart" Type="bool">False</Single>
+          <Single Name="OwningPageId" Type="long">-1</Single>
+          <Single Name="Id" Type="long">8</Single>
+        </Single>
+      </List2>
+    </Single>
+    <Null Name="ParameterInitializationMethodGenerator" />
+    <Single Name="RoutingPathTable" Type="{4b8bcc79-5980-4868-b49e-005a8148859b}" Method="IArchivable">
+      <Dictionary2 Name="InnerDictionary" />
+    </Single>
+    <Single Name="AutoSizeCanvas" Type="bool">True</Single>
+    <Single Name="CanvasWidth" Type="int">2</Single>
+    <Single Name="CanvasHeight" Type="int">2</Single>
+    <Single Name="EditorConfiguration" Type="{4f1e43e3-0667-4421-ad70-d7adf37c167a}" Method="IArchivable">
+      <Single Name="HideNamespaces" Type="bool">False</Single>
+    </Single>
+    <Single Name="AreElementsSpaceOptimized" Type="bool">False</Single>
+  </Single>
+  <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+    <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+      <Single Name="TextBlobForSerialisation" Type="string">PROGRAM SATEC_MULTIDROP_DNP_Controller
+VAR
+END_VAR
+VAR_EXTERNAL
+{attribute 'symbol' := 'none'}
+	SATEC_MULTIDROP_DNP_POU:SATEC_MULTIDROP_DNP_POU_TYPE;
+END_VAR
+</Single>
+      <Single Name="LineInfoPersistence" Type="string">13454f64-7b7e-4da1-95a2-5c23e69eb6dd_Decl_LineIds</Single>
+    </Single>
+  </Single>
+  <Single Name="UniqueIdGenerator" Type="string">153</Single>
+  <Single Name="POULevel" Type="{8e575c5b-1d37-49c6-941b-5c0ec7874787}">Standard</Single>
+  <List Name="ChildObjectGuids" Type="System.Collections.ArrayList" />
+  <Single Name="AddAttributeSubsequent" Type="bool">False</Single>
+</Single>]]></ControllerPOU>
+      <CustomRequests />
+    </Connection>
+  </Device>
+</RTACModule>

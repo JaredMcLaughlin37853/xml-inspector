@@ -1,0 +1,128 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "XML Validation Settings - Expression DSL",
+    "type": "object",
+    "properties": {
+      "validationSettings": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "string" },
+            "description": { "type": "string" },
+            "type": {
+              "type": "string",
+              "enum": [
+                "existence",
+                "pattern",
+                "range",
+                "comparison",
+                "computedComparison"
+              ]
+            },
+            "severity": {
+              "type": "string",
+              "enum": ["error", "warning", "info"]
+            },
+            "conditions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["exists", "attributeEquals"]
+                  },
+                  "xpath": { "type": "string" },
+                  "attribute": { "type": "string" },
+                  "value": { "type": "string" }
+                },
+                "required": ["type", "xpath"],
+                "additionalProperties": false
+              }
+            },
+            "pattern": { "type": "string" },
+            "minValue": { "type": "string" },
+            "maxValue": { "type": "string" },
+            "dataType": {
+              "type": "string",
+              "enum": ["string", "integer", "decimal", "date"]
+            },
+            "operator": {
+              "type": "string",
+              "enum": ["==", "!=", ">", "<", ">=", "<="]
+            },
+            "value": { "type": ["string", "number"] },
+            "expression": { "$ref": "#/definitions/expression" },
+            "comparison": {
+              "type": "object",
+              "properties": {
+                "operator": {
+                  "type": "string",
+                  "enum": ["==", "!=", ">", "<", ">=", "<=", "between"]
+                },
+                "leftExpression": { "$ref": "#/definitions/expression" },
+                "rightExpression": { "$ref": "#/definitions/expression" },
+                "lowerExpression": { "$ref": "#/definitions/expression" },
+                "upperExpression": { "$ref": "#/definitions/expression" }
+              },
+              "required": ["operator"],
+              "additionalProperties": false
+            }
+          },
+          "required": ["id", "description", "type", "severity"],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": { "properties": { "type": { "const": "existence" } } },
+              "then": { "required": ["expression"] }
+            },
+            {
+              "if": { "properties": { "type": { "const": "pattern" } } },
+              "then": { "required": ["expression", "pattern"] }
+            },
+            {
+              "if": { "properties": { "type": { "const": "range" } } },
+              "then": { "required": ["expression", "minValue", "maxValue", "dataType"] }
+            },
+            {
+              "if": { "properties": { "type": { "const": "comparison" } } },
+              "then": { "required": ["expression", "operator", "value"] }
+            },
+            {
+              "if": { "properties": { "type": { "const": "computedComparison" } } },
+              "then": { "required": ["comparison"] }
+            }
+          ]
+        }
+      }
+    },
+    "required": ["validationSettings"],
+    "additionalProperties": false,
+    "definitions": {
+      "expression": {
+        "type": "object",
+        "properties": {
+          "op": { "type": "string" },
+          "args": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                { "$ref": "#/definitions/expression" },
+                { "type": ["string", "number", "boolean"] }
+              ]
+            }
+          },
+          "xpath": { "type": "string" },
+          "xpathExpression": { "$ref": "#/definitions/expression" },
+          "value": { "type": ["string", "number", "boolean"] },
+          "dataType": {
+            "type": "string",
+            "enum": ["string", "integer", "decimal", "date"]
+          }
+        },
+        "required": ["op"],
+        "additionalProperties": false
+      }
+    }
+  }

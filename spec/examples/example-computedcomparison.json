@@ -1,0 +1,23 @@
+{
+    "validationSettings": [
+      {
+        "id": "ValidateSatecMeterAnalogInputTagCount",
+        "description": "Ensure there are exactly 24 Analog Input Rows",
+        "type": "computedComparison",
+        "severity": "error",
+        "comparison": {
+          "operator": "==",
+          "leftExpression": {
+            "op": "count",
+            "xpath": "/RTACModule/Device/Connection/SettingPages/SettingPage[Name='Analog Inputs']/Row"
+          },
+          "rightExpression": {
+            "op": "literal",
+            "value": 24
+          }
+        }
+      }
+    ]
+  }
+  
+  
