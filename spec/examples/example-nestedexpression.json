@@ -1,0 +1,42 @@
+{
+    "op": ">=",
+    "args": [
+      {
+        "op": "multiply",
+        "args": [
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "count",
+                "xpathExpression": {
+                  "op": "concat",
+                  "args": [
+                    "/Orders/Order/Items/Item[@type='",
+                    {
+                      "op": "value",
+                      "xpath": "/Orders/Order/@Category"
+                    },
+                    "']"
+                  ]
+                }
+              },
+              {
+                "op": "literal",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "op": "literal",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "op": "literal",
+        "value": 10
+      }
+    ]
+  }
+  
