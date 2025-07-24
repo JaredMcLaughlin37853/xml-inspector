@@ -1,0 +1,56 @@
+{
+  "validationSettings": [
+    {
+      "id": "count_items",
+      "description": "Count total number of items",
+      "type": "existence",
+      "severity": "error",
+      "expression": {
+        "op": "count",
+        "xpath": "//Item"
+      }
+    },
+    {
+      "id": "sum_prices",
+      "description": "Sum all item prices should be greater than 100",
+      "type": "comparison", 
+      "severity": "warning",
+      "expression": {
+        "op": "sum",
+        "xpath": "//Item/@price",
+        "dataType": "decimal"
+      },
+      "operator": ">",
+      "value": 100
+    },
+    {
+      "id": "map_calculation",
+      "description": "Calculate total value using map (quantity * price)",
+      "type": "computedComparison",
+      "severity": "error",
+      "comparison": {
+        "operator": ">",
+        "leftExpression": {
+          "op": "sum",
+          "args": [
+            {
+              "op": "map",
+              "xpath": "//Item",
+              "expression": {
+                "op": "multiply",
+                "args": [
+                  { "op": "value", "xpath": "@quantity", "dataType": "decimal" },
+                  { "op": "value", "xpath": "@price", "dataType": "decimal" }
+                ]
+              }
+            }
+          ]
+        },
+        "rightExpression": {
+          "op": "literal",
+          "value": 500
+        }
+      }
+    }
+  ]
+}
