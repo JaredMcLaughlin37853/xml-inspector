@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Orders>
+  <Order id="1" Category="Electronics">
+    <Items>
+      <Item id="1" quantity="2" price="50.0" type="Electronics">Laptop</Item>
+      <Item id="2" quantity="1" price="25.0" type="Electronics">Mouse</Item>
+      <Item id="3" quantity="3" price="15.0" type="Electronics">Cable</Item>
+    </Items>
+  </Order>
+  <Order id="2" Category="Books">
+    <Items>
+      <Item id="4" quantity="2" price="20.0" type="Books">Python Guide</Item>
+      <Item id="5" quantity="1" price="30.0" type="Books">AI Handbook</Item>
+    </Items>
+  </Order>
+</Orders>

@@ -7,7 +7,8 @@ import logging
 
 import yaml
 
-from ..types import Setting, SettingsDocument, SettingsMetadata
+from ..types import Setting, SettingsDocument, SettingsMetadata, DslValidationSettings
+from .dsl_parser import DslParser
 
 logger = logging.getLogger(__name__)
 
@@ -20,15 +21,20 @@ class SettingsParseError(Exception):
 class SettingsParser:
     """Handles parsing of settings documents in JSON and YAML formats."""
     
-    def parse_settings_document(self, file_path: Union[str, Path]) -> SettingsDocument:
+    def __init__(self):
+        """Initialize the settings parser."""
+        self.dsl_parser = DslParser()
+    
+    def parse_settings_document(self, file_path: Union[str, Path]) -> Union[SettingsDocument, DslValidationSettings]:
         """
         Parse a settings document from JSON or YAML file.
+        Automatically detects legacy or DSL format.
         
         Args:
             file_path: Path to the settings document
             
         Returns:
-            SettingsDocument object
+            SettingsDocument object for legacy format or DslValidationSettings for DSL format
             
         Raises:
             SettingsParseError: If parsing fails
@@ -51,7 +57,11 @@ class SettingsParser:
             else:
                 raise SettingsParseError(f"Unsupported settings file format: {extension}")
             
-            return self._validate_settings_document(data)
+            # Check if this is a DSL format (has validationSettings)
+            if 'validationSettings' in data:
+                return self.dsl_parser._validate_dsl_document(data)
+            else:
+                return self._validate_settings_document(data)
             
         except SettingsParseError:
             raise

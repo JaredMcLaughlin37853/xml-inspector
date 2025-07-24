@@ -5,13 +5,14 @@ A comprehensive quality assurance tool for XML files that validates configuratio
 ## Features
 
 - ✅ **XML Validation**: Parse and validate XML files using XPath expressions
-- 📋 **Settings Documents**: Support for JSON and YAML configuration files
-- 🔍 **Type-Aware Validation**: Automatic conversion and validation of strings, numbers, and booleans
+- 🚀 **DSL (Domain Specific Language)**: Powerful expression-based validation with dynamic XPath, map operations, and complex computations
+- 🔍 **Type-Aware Validation**: Automatic conversion and validation of strings, numbers, booleans, and dates
 - 📊 **Rich Reporting**: Generate detailed reports in JSON and HTML formats
 - 🎯 **Project-Specific Rules**: Merge standard and project-specific validation requirements
+- 🧮 **Advanced Operations**: Count, sum, average, arithmetic, logical operations, and iterative processing
 - 🐍 **Python Library**: Use programmatically in your Python applications
 - 💻 **CLI Interface**: Easy-to-use command-line tool with colored output
-- 🧪 **Comprehensive Testing**: Full test suite with 73% code coverage
+- 🧪 **Comprehensive Testing**: Full test suite with extensive DSL validation coverage
 
 ## Installation
 
@@ -44,18 +45,16 @@ pip install -e .
 
 ```bash
 xml-inspector inspect \
-  --xml examples/xml-files/device-config.xml \
-  --standard examples/settings/standard-device-settings.json \
-  --type device-config
+  --xml examples/test-data.xml \
+  --standard examples/dsl-example.json
 ```
 
 ### 2. Generate HTML Report
 
 ```bash
 xml-inspector inspect \
-  --xml examples/xml-files/device-config.xml \
-  --standard examples/settings/standard-device-settings.json \
-  --type device-config \
+  --xml examples/test-data.xml \
+  --standard examples/dsl-example.json \
   --output report.html \
   --format html
 ```
@@ -64,7 +63,7 @@ xml-inspector inspect \
 
 ```bash
 xml-inspector validate-settings \
-  --file examples/settings/standard-device-settings.json
+  --file examples/dsl-example.json
 ```
 
 ## Usage
@@ -80,9 +79,9 @@ xml-inspector inspect [OPTIONS]
 
 Options:
   -x, --xml <files...>     XML files to inspect (multiple allowed)
-  -s, --standard <file>    Standard settings document (JSON/YAML)
-  -p, --project <file>     Project-specific settings document (optional)
-  -t, --type <entityType>  Entity type for validation
+  -s, --standard <file>    Standard DSL validation document (JSON/YAML)
+  -p, --project <file>     Project-specific DSL validation document (optional)
+  -t, --type <entityType>  Entity type for validation (optional)
   -o, --output <file>      Output file path for report
   -f, --format <format>    Output format: json|html (default: json)
   -v, --verbose            Enable verbose output
@@ -95,7 +94,7 @@ Options:
 xml-inspector validate-settings [OPTIONS]
 
 Options:
-  -f, --file <file>    Settings document to validate
+  -f, --file <file>    DSL validation document to validate
   --help               Show help message
 ```
 
@@ -113,9 +112,9 @@ inspector = XmlInspector()
 # Configure inspection
 options = InspectionOptions(
     xml_files=["path/to/config.xml"],
-    standard_settings_file="path/to/standard-settings.json",
-    project_settings_file="path/to/project-settings.yaml",  # Optional
-    entity_type="device-config",
+    standard_settings_file="path/to/dsl-validation.json",
+    project_settings_file="path/to/project-validation.yaml",  # Optional
+    entity_type="",  # Optional for DSL
     output_path="report.json",
     output_format="json"
 )
@@ -132,55 +131,92 @@ print(f"Missing: {report.summary.missing}")
 
 ## Configuration
 
-### Settings Document Structure
+### DSL Validation Document Structure
 
-Settings documents define validation rules using JSON or YAML format:
+XML Inspector uses a powerful DSL format for defining validation rules with advanced operations:
 
 ```json
 {
-  "entityType": "device-config",
-  "metadata": {
-    "version": "1.0.0",
-    "description": "Standard device configuration settings",
-    "author": "IT Operations Team"
-  },
-  "settings": [
+  "validationSettings": [
     {
-      "name": "device-type",
-      "xpath": "//device/@type",
-      "expectedValue": "router",
-      "description": "Device type classification",
-      "type": "string",
-      "required": true
+      "id": "count_items",
+      "description": "Count total number of items",
+      "type": "existence",
+      "severity": "error",
+      "expression": {
+        "op": "count",
+        "xpath": "//Item"
+      }
     },
     {
-      "name": "network-port",
-      "xpath": "//network/port/text()",
-      "expectedValue": 8080,
-      "description": "Network port number",
-      "type": "number",
-      "required": true
+      "id": "sum_prices",
+      "description": "Sum all item prices should be greater than 100",
+      "type": "comparison", 
+      "severity": "warning",
+      "expression": {
+        "op": "sum",
+        "xpath": "//Item/@price",
+        "dataType": "decimal"
+      },
+      "operator": ">",
+      "value": 100
     },
     {
-      "name": "interface-enabled",
-      "xpath": "//interface[@id='eth0']/enabled/text()",
-      "expectedValue": true,
-      "description": "Primary interface must be enabled",
-      "type": "boolean",
-      "required": true
+      "id": "map_calculation",
+      "description": "Calculate total value using map (quantity * price)",
+      "type": "computedComparison",
+      "severity": "error",
+      "comparison": {
+        "operator": ">",
+        "leftExpression": {
+          "op": "sum",
+          "args": [
+            {
+              "op": "map",
+              "xpath": "//Item",
+              "expression": {
+                "op": "multiply",
+                "args": [
+                  { "op": "value", "xpath": "@quantity", "dataType": "decimal" },
+                  { "op": "value", "xpath": "@price", "dataType": "decimal" }
+                ]
+              }
+            }
+          ]
+        },
+        "rightExpression": {
+          "op": "literal",
+          "value": 500
+        }
+      }
     }
   ]
 }
 ```
 
-### Setting Properties
+#### DSL Validation Rule Types
 
-- **name**: Unique identifier for the setting
-- **xpath**: XPath expression to locate the value in XML
-- **expectedValue**: Expected value (optional - if omitted, only checks presence)
-- **description**: Human-readable description
-- **type**: Data type (`string`, `number`, `boolean`)
-- **required**: Whether the setting must be present (default: `true`)
+- **existence**: Check if expression result exists/is truthy
+- **pattern**: Match expression result against regex pattern  
+- **range**: Validate expression result is within min/max range
+- **comparison**: Compare expression result with fixed value
+- **computedComparison**: Compare two expressions or use between operator
+
+#### DSL Expression Operations
+
+- **Basic**: `count`, `sum`, `average`, `value`, `literal`
+- **Arithmetic**: `add`, `subtract`, `multiply`, `divide`
+- **Logic**: `if`, `and`, `or`, `not`
+- **Comparison**: `==`, `!=`, `>`, `<`, `>=`, `<=`
+- **String**: `concat`
+- **Advanced**: `map` (iterate over nodes and apply expression per node)
+
+#### DSL Features
+
+- **Dynamic XPath**: Use `xpathExpression` instead of `xpath` to compute XPath strings dynamically
+- **Conditional Rules**: Add `conditions` array to control when rules apply
+- **Type Conversion**: Automatic handling of `string`, `integer`, `decimal`, `date` types
+- **Nested Expressions**: Build complex validation logic with recursive expression trees
 
 ### XPath Examples
 
@@ -194,9 +230,14 @@ Settings documents define validation rules using JSON or YAML format:
 
 The `examples/` directory contains:
 
-- **XML Files**: Sample device configuration files
-- **Settings Documents**: JSON and YAML validation rules
-- **Usage Examples**: Demonstrations of various features
+- **XML Files**: Sample XML data for testing and demonstration
+- **DSL Documents**: JSON and YAML validation rules with advanced expressions
+- **Usage Examples**: Demonstrations of various DSL features
+
+### Key Example Files
+
+- `examples/dsl-example.json` - DSL validation rules with count, sum, and map operations
+- `examples/test-data.xml` - Sample XML data for testing DSL functionality
 
 See [examples/README.md](examples/README.md) for detailed usage examples.
 
@@ -243,14 +284,22 @@ mypy xml_inspector
 ```
 xml-inspector/
 ├── xml_inspector/          # Main Python package
-│   ├── core/              # Core functionality (parsing, inspection)
-│   ├── parsers/           # Settings document parsers
+│   ├── core/              # Core functionality (parsing, inspection, DSL evaluation)
+│   │   ├── dsl_evaluator.py    # DSL expression evaluator
+│   │   ├── inspector.py        # Main inspection engine
+│   │   └── xml_parser.py       # XML parsing utilities
+│   ├── parsers/           # Document parsers
+│   │   ├── dsl_parser.py       # DSL format parser
+│   │   └── settings_parser.py  # Settings document parser with auto-detection
 │   ├── validators/        # XML validation logic
+│   │   ├── dsl_validator.py    # DSL-based validation
+│   │   └── xml_validator.py    # XML validation utilities
 │   ├── reporters/         # Report generation
-│   ├── types/             # Type definitions
+│   ├── types/             # Type definitions for DSL and validation
 │   └── cli.py             # Command-line interface
 ├── tests/                 # Test suite
 ├── examples/              # Example files and documentation
+├── spec/                  # DSL specification and JSON schema
 ├── requirements.txt       # Production dependencies
 ├── requirements-dev.txt   # Development dependencies
 ├── setup.py              # Package configuration

@@ -8,8 +8,9 @@ import logging
 from .xml_parser import XmlParser
 from ..parsers.settings_parser import SettingsParser
 from ..validators.xml_validator import XmlValidator
+from ..validators.dsl_validator import DslValidator
 from ..reporters.report_generator import ReportGenerator, ReportFormat
-from ..types import InspectionReport, SettingsDocument
+from ..types import InspectionReport, SettingsDocument, DslValidationSettings
 
 logger = logging.getLogger(__name__)
 
@@ -39,6 +40,7 @@ class XmlInspector:
         self.xml_parser = XmlParser()
         self.settings_parser = SettingsParser()
         self.validator = XmlValidator()
+        self.dsl_validator = DslValidator()
         self.report_generator = ReportGenerator()
     
     def inspect(self, options: InspectionOptions) -> InspectionReport:
@@ -59,31 +61,51 @@ class XmlInspector:
             xml_files = self.xml_parser.parse_xml_files(options.xml_files)
             
             # Parse settings documents
-            settings_documents: List[SettingsDocument] = []
-            settings_documents.append(
-                self.settings_parser.parse_settings_document(options.standard_settings_file)
-            )
+            standard_settings = self.settings_parser.parse_settings_document(options.standard_settings_file)
             
+            project_settings = None
             if options.project_settings_file:
-                settings_documents.append(
-                    self.settings_parser.parse_settings_document(options.project_settings_file)
-                )
+                project_settings = self.settings_parser.parse_settings_document(options.project_settings_file)
             
-            # Merge settings if multiple documents
-            if len(settings_documents) > 1:
-                merged_settings = self.settings_parser.merge_settings_documents(settings_documents)
+            # Handle DSL vs Legacy format
+            if isinstance(standard_settings, DslValidationSettings):
+                # DSL format
+                if project_settings and not isinstance(project_settings, DslValidationSettings):
+                    raise InspectionError("Cannot mix DSL and legacy settings formats")
+                
+                # For DSL, we can combine validation rules from multiple documents
+                all_rules = standard_settings.validation_settings[:]
+                if project_settings:
+                    all_rules.extend(project_settings.validation_settings)
+                
+                combined_settings = DslValidationSettings(validation_settings=all_rules)
+                validation_results = self.dsl_validator.validate_xml_files(xml_files, combined_settings)
+                entity_type = options.entity_type or "DSL Validation"
+                
             else:
-                merged_settings = settings_documents[0]
-            
-            # Validate entity type if specified
-            if options.entity_type and merged_settings.entity_type != options.entity_type:
-                raise InspectionError(
-                    f"Entity type mismatch: expected {options.entity_type}, "
-                    f"got {merged_settings.entity_type}"
-                )
-            
-            # Perform validation
-            validation_results = self.validator.validate_xml_files(xml_files, merged_settings)
+                # Legacy format
+                if project_settings and isinstance(project_settings, DslValidationSettings):
+                    raise InspectionError("Cannot mix DSL and legacy settings formats")
+                
+                settings_documents: List[SettingsDocument] = [standard_settings]
+                if project_settings:
+                    settings_documents.append(project_settings)
+                
+                # Merge settings if multiple documents
+                if len(settings_documents) > 1:
+                    merged_settings = self.settings_parser.merge_settings_documents(settings_documents)
+                else:
+                    merged_settings = settings_documents[0]
+                
+                # Validate entity type if specified
+                if options.entity_type and merged_settings.entity_type != options.entity_type:
+                    raise InspectionError(
+                        f"Entity type mismatch: expected {options.entity_type}, "
+                        f"got {merged_settings.entity_type}"
+                    )
+                
+                validation_results = self.validator.validate_xml_files(xml_files, merged_settings)
+                entity_type = merged_settings.entity_type
             
             # Generate report
             settings_file_paths = [str(options.standard_settings_file)]
@@ -94,7 +116,7 @@ class XmlInspector:
                 validation_results,
                 [str(path) for path in options.xml_files],
                 settings_file_paths,
-                merged_settings.entity_type
+                entity_type
             )
             
             # Save report if output path specified

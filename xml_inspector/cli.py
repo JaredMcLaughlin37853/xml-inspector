@@ -10,6 +10,7 @@ from colorama import Fore, Style, init as colorama_init
 
 from .core.inspector import XmlInspector, InspectionOptions, InspectionError
 from .parsers.settings_parser import SettingsParseError
+from .types import DslValidationSettings
 
 # Initialize colorama for cross-platform colored output
 colorama_init(autoreset=True)
@@ -60,16 +61,15 @@ def cli(verbose: bool) -> None:
 @click.option(
     "--standard", "-s",
     required=True,
-    help="Standard settings document (JSON or YAML)"
+    help="Standard settings document (JSON or YAML, legacy or DSL format)"
 )
 @click.option(
     "--project", "-p",
-    help="Project-specific settings document (JSON or YAML)"
+    help="Project-specific settings document (JSON or YAML, must match standard format)"
 )
 @click.option(
     "--type", "-t", "entity_type",
-    required=True,
-    help="Entity type for validation"
+    help="Entity type for validation (optional for DSL format)"
 )
 @click.option(
     "--output", "-o",
@@ -85,7 +85,7 @@ def inspect(
     xml: tuple,
     standard: str,
     project: Optional[str],
-    entity_type: str,
+    entity_type: Optional[str],
     output: Optional[str],
     output_format: str
 ) -> None:
@@ -111,7 +111,8 @@ def inspect(
         
         # Display inspection info
         click.echo(f"{Fore.BLUE}🔍 Starting XML inspection...")
-        click.echo(f"{Fore.CYAN}Entity Type: {entity_type}")
+        if entity_type:
+            click.echo(f"{Fore.CYAN}Entity Type: {entity_type}")
         click.echo(f"{Fore.CYAN}XML Files: {', '.join(xml_files)}")
         click.echo(f"{Fore.CYAN}Standard Settings: {standard}")
         if project:
@@ -151,7 +152,7 @@ def inspect(
 @click.option(
     "--file", "-f",
     required=True,
-    help="Settings document to validate"
+    help="Settings document to validate (legacy or DSL format)"
 )
 def validate_settings(file: str) -> None:
     """Validate a settings document structure."""
@@ -165,13 +166,31 @@ def validate_settings(file: str) -> None:
         
         click.echo(f"{Fore.GREEN}✅ Settings document is valid!")
         click.echo(f"\n{Fore.BLUE}📋 Document Info:")
-        click.echo(f"  Entity Type: {settings_doc.entity_type}")
-        click.echo(f"  Settings Count: {len(settings_doc.settings)}")
         
-        if settings_doc.metadata and settings_doc.metadata.description:
-            click.echo(f"  Description: {settings_doc.metadata.description}")
-        if settings_doc.metadata and settings_doc.metadata.version:
-            click.echo(f"  Version: {settings_doc.metadata.version}")
+        if isinstance(settings_doc, DslValidationSettings):
+            # DSL format
+            click.echo(f"  Format: DSL")
+            click.echo(f"  Validation Rules Count: {len(settings_doc.validation_settings)}")
+            
+            # Show rule type breakdown
+            rule_types = {}
+            for rule in settings_doc.validation_settings:
+                rule_types[rule.type] = rule_types.get(rule.type, 0) + 1
+            
+            if rule_types:
+                click.echo(f"  Rule Types:")
+                for rule_type, count in rule_types.items():
+                    click.echo(f"    {rule_type}: {count}")
+        else:
+            # Legacy format
+            click.echo(f"  Format: Legacy")
+            click.echo(f"  Entity Type: {settings_doc.entity_type}")
+            click.echo(f"  Settings Count: {len(settings_doc.settings)}")
+            
+            if settings_doc.metadata and settings_doc.metadata.description:
+                click.echo(f"  Description: {settings_doc.metadata.description}")
+            if settings_doc.metadata and settings_doc.metadata.version:
+                click.echo(f"  Version: {settings_doc.metadata.version}")
         
     except (InspectionError, SettingsParseError) as e:
         click.echo(f"{Fore.RED}❌ Error: {e}", err=True)
