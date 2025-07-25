@@ -122,7 +122,7 @@ class DslParser:
             raise DslParseError("Validation rule must have a valid description")
         
         rule_type = data.get('type')
-        if rule_type not in ['existence', 'pattern', 'range', 'comparison', 'computedComparison']:
+        if rule_type not in ['existence', 'pattern', 'range', 'comparison', 'computedComparison', 'nodeValidation']:
             raise DslParseError(f"Invalid validation rule type: {rule_type}")
         
         severity = data.get('severity')
@@ -149,6 +149,16 @@ class DslParser:
         if 'comparison' in data:
             comparison = self._parse_comparison(data['comparison'])
         
+        # Parse nodeValidation specific fields
+        nodes_xpath = data.get('nodesXpath')
+        node_value_expression = None
+        if 'nodeValueExpression' in data:
+            node_value_expression = self._parse_expression(data['nodeValueExpression'])
+        
+        expected_value_expression = None
+        if 'expectedValueExpression' in data:
+            expected_value_expression = self._parse_expression(data['expectedValueExpression'])
+        
         return DslValidationRule(
             id=rule_id,
             description=description,
@@ -162,7 +172,10 @@ class DslParser:
             data_type=data_type,  # type: ignore
             operator=operator,  # type: ignore
             value=value,
-            comparison=comparison
+            comparison=comparison,
+            nodes_xpath=nodes_xpath,
+            node_value_expression=node_value_expression,
+            expected_value_expression=expected_value_expression
         )
     
     def _parse_condition(self, data: Dict[str, Any]) -> DslCondition:

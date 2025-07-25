@@ -122,8 +122,18 @@ class DslEvaluator:
         if expression.xpath:
             return expression.xpath
         elif expression.xpath_expression:
-            result = self.evaluate_expression(expression.xpath_expression, xml_root, context_node)
-            return str(result)
+            try:
+                result = self.evaluate_expression(expression.xpath_expression, xml_root, context_node)
+                xpath_str = str(result)
+                
+                # Validate that the result looks like a reasonable XPath
+                if not xpath_str or xpath_str.isspace():
+                    raise DslEvaluationError("Dynamic XPath expression evaluated to empty string")
+                    
+                logger.debug(f"Dynamic XPath evaluated to: {xpath_str}")
+                return xpath_str
+            except Exception as e:
+                raise DslEvaluationError(f"Failed to evaluate dynamic XPath expression: {e}")
         else:
             raise DslEvaluationError("Expression must have either xpath or xpathExpression")
     
@@ -380,11 +390,22 @@ class DslEvaluator:
     def _op_map(self, expr: DslExpression, xml_root: etree._Element, 
                 context_node: Optional[etree._Element] = None) -> List[Any]:
         """Map operation - iterate over nodes and evaluate expression per node."""
-        if not expr.xpath or not expr.expression:
-            raise DslEvaluationError("map operation requires xpath and expression")
+        if not expr.expression:
+            raise DslEvaluationError("map operation requires expression")
+        
+        # Get XPath either from static xpath or dynamic xpath_expression
+        try:
+            xpath_str = self._get_xpath_expression(expr, xml_root, context_node)
+        except Exception as e:
+            raise DslEvaluationError(f"Failed to get XPath for map operation: {e}")
         
         search_root = context_node if context_node is not None else xml_root
-        nodes = search_root.xpath(expr.xpath)
+        
+        try:
+            nodes = search_root.xpath(xpath_str)
+        except Exception as e:
+            logger.warning(f"XPath evaluation failed in map operation: {xpath_str} - {e}")
+            return []
         
         results = []
         for node in nodes:

@@ -17,7 +17,8 @@
               "pattern",
               "range",
               "comparison",
-              "computedComparison"
+              "computedComparison",
+              "nodeValidation"
             ]
           },
           "severity": {
@@ -54,6 +55,9 @@
           },
           "value": { "type": ["string", "number"] },
           "expression": { "$ref": "#/definitions/expression" },
+          "nodesXpath": { "type": "string" },
+          "nodeValueExpression": { "$ref": "#/definitions/expression" },
+          "expectedValueExpression": { "$ref": "#/definitions/expression" },
           "comparison": {
             "type": "object",
             "properties": {
@@ -92,6 +96,16 @@
           {
             "if": { "properties": { "type": { "const": "computedComparison" } } },
             "then": { "required": ["comparison"] }
+          },
+          {
+            "if": { "properties": { "type": { "const": "nodeValidation" } } },
+            "then": { 
+              "required": ["nodesXpath", "nodeValueExpression"],
+              "anyOf": [
+                { "required": ["value"] },
+                { "required": ["expectedValueExpression"] }
+              ]
+            }
           }
         ]
       }
@@ -155,7 +169,11 @@
             "properties": { "op": { "const": "map" } }
           },
           "then": {
-            "required": ["xpath", "expression"]
+            "required": ["expression"],
+            "anyOf": [
+              { "required": ["xpath"] },
+              { "required": ["xpathExpression"] }
+            ]
           }
         }
       ]
