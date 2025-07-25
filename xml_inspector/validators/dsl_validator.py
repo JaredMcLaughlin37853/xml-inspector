@@ -8,7 +8,7 @@ import logging
 from lxml import etree
 from ..types import (
     DslValidationSettings, DslValidationRule, DslExpression, DslComparison,
-    ValidationResult, ValidationStatus, XmlFile
+    ValidationResult, ValidationStatus, XmlFile, NodeValidationResult
 )
 from ..core.dsl_evaluator import DslEvaluator, DslEvaluationError
 
@@ -100,6 +100,8 @@ class DslValidator:
                 return self._validate_comparison(xml_file, rule)
             elif rule.type == "computedComparison":
                 return self._validate_computed_comparison(xml_file, rule)
+            elif rule.type == "nodeValidation":
+                return self._validate_node_validation(xml_file, rule)
             else:
                 raise DslValidationError(f"Unknown rule type: {rule.type}")
                 
@@ -360,3 +362,154 @@ class DslValidator:
             return self._get_expression_xpath(comparison.lower_expression)
         else:
             return "computed comparison"
+    
+    def _validate_node_validation(self, xml_file: XmlFile, rule: DslValidationRule) -> ValidationResult:
+        """
+        Validate multiple nodes individually and return per-node results.
+        
+        This validation type iterates through nodes matching an XPath and validates 
+        each one individually, producing a PASS/FAIL result for each node.
+        """
+        if not rule.nodes_xpath:
+            return ValidationResult(
+                setting_name=rule.id,
+                xpath="N/A",
+                expected_value=None,
+                actual_value=None,
+                status="fail",
+                message="nodeValidation requires nodesXpath field",
+                file_path=xml_file.path
+            )
+        
+        if not rule.node_value_expression:
+            return ValidationResult(
+                setting_name=rule.id,
+                xpath=rule.nodes_xpath,
+                expected_value=None,
+                actual_value=None,
+                status="fail",
+                message="nodeValidation requires nodeValueExpression field",
+                file_path=xml_file.path
+            )
+        
+        # Get nodes to validate
+        try:
+            nodes = xml_file.content.xpath(rule.nodes_xpath)
+        except Exception as e:
+            return ValidationResult(
+                setting_name=rule.id,
+                xpath=rule.nodes_xpath,
+                expected_value=None,
+                actual_value=None,
+                status="fail",
+                message=f"XPath error: {e}",
+                file_path=xml_file.path
+            )
+        
+        if not nodes:
+            return ValidationResult(
+                setting_name=rule.id,
+                xpath=rule.nodes_xpath,
+                expected_value=None,
+                actual_value=None,
+                status="missing",
+                message="No nodes found matching XPath",
+                file_path=xml_file.path
+            )
+        
+        node_results = []
+        overall_status = "pass"
+        
+        for i, node in enumerate(nodes):
+            try:
+                # Get actual value from node
+                actual_value = self.evaluator.evaluate_expression(
+                    rule.node_value_expression, xml_file.content, node
+                )
+                
+                # Get expected value
+                if rule.expected_value_expression:
+                    expected_value = self.evaluator.evaluate_expression(
+                        rule.expected_value_expression, xml_file.content, node
+                    )
+                elif rule.value is not None:
+                    expected_value = rule.value
+                else:
+                    expected_value = None
+                
+                # Perform comparison
+                if expected_value is not None:
+                    if rule.operator:
+                        node_status = self._compare_values(actual_value, expected_value, rule.operator)
+                    else:
+                        # Default to equality comparison
+                        node_status = "pass" if actual_value == expected_value else "fail"
+                else:
+                    # If no expected value, just check existence
+                    node_status = "pass" if actual_value is not None else "fail"
+                
+                # Build node XPath for reporting
+                node_xpath = f"{rule.nodes_xpath}[{i+1}]"
+                
+                node_result = NodeValidationResult(
+                    node_index=i,
+                    node_xpath=node_xpath,
+                    actual_value=actual_value,
+                    expected_value=expected_value,
+                    status=node_status,
+                    message=f"Node {i+1}: {node_status.upper()}"
+                )
+                
+                node_results.append(node_result)
+                
+                # Track overall status
+                if node_status == "fail":
+                    overall_status = "fail"
+                
+            except Exception as e:
+                node_result = NodeValidationResult(
+                    node_index=i,
+                    node_xpath=f"{rule.nodes_xpath}[{i+1}]",
+                    actual_value=None,
+                    expected_value=None,
+                    status="fail",
+                    message=f"Node {i+1}: Error - {e}"
+                )
+                node_results.append(node_result)
+                overall_status = "fail"
+        
+        # Create summary message
+        pass_count = sum(1 for r in node_results if r.status == "pass")
+        fail_count = sum(1 for r in node_results if r.status == "fail")
+        summary_msg = f"Node validation: {pass_count} passed, {fail_count} failed"
+        
+        return ValidationResult(
+            setting_name=rule.id,
+            xpath=rule.nodes_xpath,
+            expected_value=f"All nodes should pass validation",
+            actual_value=f"{pass_count}/{len(node_results)} nodes passed",
+            status=overall_status,
+            message=summary_msg,
+            file_path=xml_file.path,
+            node_results=node_results
+        )
+    
+    def _compare_values(self, actual: Any, expected: Any, operator: str) -> str:
+        """Compare two values using the specified operator."""
+        try:
+            if operator == "==":
+                return "pass" if actual == expected else "fail"
+            elif operator == "!=":
+                return "pass" if actual != expected else "fail"
+            elif operator == ">":
+                return "pass" if float(actual) > float(expected) else "fail"
+            elif operator == "<":
+                return "pass" if float(actual) < float(expected) else "fail"
+            elif operator == ">=":
+                return "pass" if float(actual) >= float(expected) else "fail"
+            elif operator == "<=":
+                return "pass" if float(actual) <= float(expected) else "fail"
+            else:
+                return "fail"
+        except (ValueError, TypeError):
+            return "fail"

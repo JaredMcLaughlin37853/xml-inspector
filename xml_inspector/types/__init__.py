@@ -6,7 +6,7 @@ from datetime import datetime
 
 SettingType = Literal["string", "number", "boolean"]
 ValidationStatus = Literal["pass", "fail", "missing"]
-DslValidationType = Literal["existence", "pattern", "range", "comparison", "computedComparison"]
+DslValidationType = Literal["existence", "pattern", "range", "comparison", "computedComparison", "nodeValidation"]
 DslSeverity = Literal["error", "warning", "info"]
 DslDataType = Literal["string", "integer", "decimal", "date"]
 DslComparisonOperator = Literal["==", "!=", ">", "<", ">=", "<=", "between"]
@@ -44,6 +44,18 @@ class SettingsDocument:
 
 
 @dataclass
+class NodeValidationResult:
+    """Result of validating a single node in a node validation rule."""
+    
+    node_index: int
+    node_xpath: str
+    actual_value: Any
+    expected_value: Any
+    status: ValidationStatus
+    message: Optional[str] = None
+
+
+@dataclass
 class ValidationResult:
     """Result of validating a single setting."""
     
@@ -54,6 +66,8 @@ class ValidationResult:
     status: ValidationStatus
     message: Optional[str]
     file_path: str
+    # For nodeValidation type rules - contains per-node results
+    node_results: Optional[List[NodeValidationResult]] = None
 
 
 @dataclass
@@ -150,6 +164,10 @@ class DslValidationRule:
     operator: Optional[DslComparisonOperator] = None
     value: Optional[Union[str, int, float]] = None
     comparison: Optional[DslComparison] = None
+    # Fields for nodeValidation type
+    nodes_xpath: Optional[str] = None  # XPath to select the nodes to validate
+    node_value_expression: Optional[DslExpression] = None  # Expression to extract value from each node
+    expected_value_expression: Optional[DslExpression] = None  # Expression to get expected value for each node
 
 
 @dataclass
