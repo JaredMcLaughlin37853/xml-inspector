@@ -53,7 +53,8 @@ class DslValidator:
                     logger.error(f"Failed to validate rule {rule.id} for file {xml_file.path}: {e}")
                     # Create a failed result for the error
                     results.append(ValidationResult(
-                        setting_name=rule.id,
+                        rule_id=rule.id,
+                        rule_description=rule.description,
                         xpath="N/A",
                         expected_value=None,
                         actual_value=None,
@@ -80,8 +81,9 @@ class DslValidator:
             if not self.evaluator.evaluate_conditions(rule.conditions, xml_file.content):
                 # Conditions not met, skip this rule
                 return ValidationResult(
-                    setting_name=rule.id,
-                    xpath="N/A",
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath="N/A",
                     expected_value=None,
                     actual_value=None,
                     status="pass",  # Skip is considered pass
@@ -107,8 +109,9 @@ class DslValidator:
                 
         except Exception as e:
             return ValidationResult(
-                setting_name=rule.id,
-                xpath="N/A",
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath="N/A",
                 expected_value=None,
                 actual_value=None,
                 status="fail",
@@ -128,8 +131,9 @@ class DslValidator:
             exists = bool(result) and (not isinstance(result, (int, float)) or result > 0)
             
             return ValidationResult(
-                setting_name=rule.id,
-                xpath=self._get_expression_xpath(rule.expression),
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath=self._get_expression_xpath(rule.expression),
                 expected_value="exists",
                 actual_value=str(result),
                 status="pass" if exists else "fail",
@@ -139,8 +143,9 @@ class DslValidator:
             
         except DslEvaluationError as e:
             return ValidationResult(
-                setting_name=rule.id,
-                xpath=self._get_expression_xpath(rule.expression),
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath=self._get_expression_xpath(rule.expression),
                 expected_value="exists",
                 actual_value=None,
                 status="fail",
@@ -160,8 +165,9 @@ class DslValidator:
             pattern_match = re.match(rule.pattern, result_str) is not None
             
             return ValidationResult(
-                setting_name=rule.id,
-                xpath=self._get_expression_xpath(rule.expression),
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath=self._get_expression_xpath(rule.expression),
                 expected_value=f"matches pattern: {rule.pattern}",
                 actual_value=result_str,
                 status="pass" if pattern_match else "fail",
@@ -171,8 +177,9 @@ class DslValidator:
             
         except DslEvaluationError as e:
             return ValidationResult(
-                setting_name=rule.id,
-                xpath=self._get_expression_xpath(rule.expression),
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath=self._get_expression_xpath(rule.expression),
                 expected_value=f"matches pattern: {rule.pattern}",
                 actual_value=None,
                 status="fail",
@@ -209,8 +216,9 @@ class DslValidator:
             in_range = min_val <= actual_val <= max_val
             
             return ValidationResult(
-                setting_name=rule.id,
-                xpath=self._get_expression_xpath(rule.expression),
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath=self._get_expression_xpath(rule.expression),
                 expected_value=f"between {rule.min_value} and {rule.max_value}",
                 actual_value=str(result),
                 status="pass" if in_range else "fail",
@@ -220,8 +228,9 @@ class DslValidator:
             
         except (DslEvaluationError, ValueError, TypeError) as e:
             return ValidationResult(
-                setting_name=rule.id,
-                xpath=self._get_expression_xpath(rule.expression),
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath=self._get_expression_xpath(rule.expression),
                 expected_value=f"between {rule.min_value} and {rule.max_value}",
                 actual_value=None,
                 status="fail",
@@ -255,8 +264,9 @@ class DslValidator:
                 raise DslValidationError(f"Unknown comparison operator: {rule.operator}")
             
             return ValidationResult(
-                setting_name=rule.id,
-                xpath=self._get_expression_xpath(rule.expression),
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath=self._get_expression_xpath(rule.expression),
                 expected_value=f"{rule.operator} {expected}",
                 actual_value=str(result),
                 status="pass" if passes else "fail",
@@ -266,8 +276,9 @@ class DslValidator:
             
         except (DslEvaluationError, ValueError, TypeError) as e:
             return ValidationResult(
-                setting_name=rule.id,
-                xpath=self._get_expression_xpath(rule.expression),
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath=self._get_expression_xpath(rule.expression),
                 expected_value=f"{rule.operator} {rule.value}",
                 actual_value=None,
                 status="fail",
@@ -325,8 +336,9 @@ class DslValidator:
                 expected_desc = f"{comparison.operator} {right_result}"
             
             return ValidationResult(
-                setting_name=rule.id,
-                xpath=self._get_comparison_xpath(comparison),
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath=self._get_comparison_xpath(comparison),
                 expected_value=expected_desc,
                 actual_value=str(actual),
                 status="pass" if passes else "fail",
@@ -336,8 +348,9 @@ class DslValidator:
             
         except (DslEvaluationError, ValueError, TypeError) as e:
             return ValidationResult(
-                setting_name=rule.id,
-                xpath=self._get_comparison_xpath(comparison),
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath=self._get_comparison_xpath(comparison),
                 expected_value="computed comparison",
                 actual_value=None,
                 status="fail",
@@ -372,8 +385,9 @@ class DslValidator:
         """
         if not rule.nodes_xpath:
             return ValidationResult(
-                setting_name=rule.id,
-                xpath="N/A",
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath="N/A",
                 expected_value=None,
                 actual_value=None,
                 status="fail",
@@ -383,8 +397,9 @@ class DslValidator:
         
         if not rule.node_value_expression:
             return ValidationResult(
-                setting_name=rule.id,
-                xpath=rule.nodes_xpath,
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath=rule.nodes_xpath,
                 expected_value=None,
                 actual_value=None,
                 status="fail",
@@ -397,8 +412,9 @@ class DslValidator:
             nodes = xml_file.content.xpath(rule.nodes_xpath)
         except Exception as e:
             return ValidationResult(
-                setting_name=rule.id,
-                xpath=rule.nodes_xpath,
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath=rule.nodes_xpath,
                 expected_value=None,
                 actual_value=None,
                 status="fail",
@@ -408,8 +424,9 @@ class DslValidator:
         
         if not nodes:
             return ValidationResult(
-                setting_name=rule.id,
-                xpath=rule.nodes_xpath,
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath=rule.nodes_xpath,
                 expected_value=None,
                 actual_value=None,
                 status="missing",
@@ -484,8 +501,9 @@ class DslValidator:
         summary_msg = f"Node validation: {pass_count} passed, {fail_count} failed"
         
         return ValidationResult(
-            setting_name=rule.id,
-            xpath=rule.nodes_xpath,
+                        rule_id=rule.id,
+                        rule_description=rule.description,
+                        xpath=rule.nodes_xpath,
             expected_value=f"All nodes should pass validation",
             actual_value=f"{pass_count}/{len(node_results)} nodes passed",
             status=overall_status,

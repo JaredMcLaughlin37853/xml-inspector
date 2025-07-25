@@ -4,27 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-xml-inspector is a quality assurance tool for XML files that validates configuration settings against standardized requirements. The tool supports both simple settings-based validation and advanced DSL (Domain Specific Language) expression-based validation for complex XML inspection scenarios.
+xml-inspector is a quality assurance tool for XML files that validates configuration settings using DSL (Domain Specific Language) expression-based validation for complex XML inspection scenarios.
 
 **Language**: Python 3.8+
 **Architecture**: Object-oriented with dataclasses for type safety
 
 ## Core Workflow
 
-The tool supports two validation approaches:
-
-### Simple Settings-Based Validation
-1. **Entity Type Selection**: User selects the type of entity (e.g., device settings, configurations)
-2. **XML File Upload**: Upload one or multiple XML files for inspection
-3. **Standard Settings Document**: Upload reference document containing:
-   - Standard setting values
-   - XPath locations for each setting
-4. **Project-Specific Settings**: Upload additional document with project-specific requirements
-5. **XML Inspection**: Tool extracts values from XML files using XPath expressions
-6. **Validation**: Compare extracted values against both standard and project-specific requirements
-7. **Report Generation**: Generate comprehensive report showing passed and failed checks
-
-### Advanced DSL Expression-Based Validation
+### DSL Expression-Based Validation
 1. **DSL Document Creation**: Create JSON documents with complex validation rules using the DSL syntax
 2. **XML File Upload**: Upload XML files for inspection
 3. **Expression Evaluation**: Tool evaluates sophisticated expressions including:
@@ -60,29 +47,26 @@ The tool provides a command-line interface with the following commands:
 
 ### CLI Examples:
 ```bash
-# Basic settings-based inspection
-xml-inspector inspect -x file.xml -s settings.json -t device-config
+# DSL-based inspection
+xml-inspector inspect -x file.xml -d dsl-validation.json
 
-# With project settings and HTML output
-xml-inspector inspect -x file.xml -s standard.json -p project.yaml -t device-config -o report.html -f html
+# Multiple XML files with HTML output
+xml-inspector inspect -x file1.xml -x file2.xml -d dsl-validation.json -o report.html -f html
 
-# DSL-based inspection with complex expressions
-xml-inspector inspect -x config.xml -s dsl-validation.json -t device-config
-
-# Validate settings document structure
-xml-inspector validate-settings -f settings.json
+# Validate DSL document structure
+xml-inspector validate-settings -f dsl-validation.json
 ```
 
 ## Project Structure
 
 - `xml_inspector/` - Main Python package
   - `core/` - Core functionality (XML parsing, inspection engine, DSL evaluator)
-  - `parsers/` - Settings document parsers (JSON/YAML, DSL parser)
-  - `validators/` - XML validation logic (settings-based and DSL-based)
+  - `parsers/` - DSL document parsers (JSON)
+  - `validators/` - DSL-based XML validation logic
   - `reporters/` - Report generation (JSON/HTML)
   - `types/` - Python dataclass type definitions
 - `tests/` - Test suite using pytest
-- `examples/` - Sample XML files and settings documents
+- `examples/` - Sample XML files and DSL documents
 - `spec/` - DSL specification and JSON schema files
 
 ## Key Dependencies
@@ -100,11 +84,8 @@ xml-inspector validate-settings -f settings.json
 - **XmlInspector**: Main orchestrator class that coordinates all components
 - **CLI**: Click-based command-line interface with colored output
 
-### Settings-Based Validation
-- **SettingsParser**: Processes JSON/YAML settings documents with validation
-- **XmlValidator**: Compares extracted XML values against expected values with type conversion
-
 ### DSL Expression-Based Validation  
+- **SettingsParser**: Processes DSL validation documents (JSON format)
 - **DslParser**: Parses DSL validation documents with complex expression trees
 - **DslEvaluator**: Evaluates DSL expressions including:
   - Arithmetic and logical operations
@@ -117,15 +98,11 @@ xml-inspector validate-settings -f settings.json
   - Complex mapping between related XML nodes
 
 ### Reporting
-- **ReportGenerator**: Creates JSON and HTML reports using Jinja2 templates with support for both simple and detailed per-node results
+- **ReportGenerator**: Creates JSON and HTML reports using Jinja2 templates with support for detailed per-node results
 
 ## Type System
 
 The project uses Python dataclasses for type safety:
-
-### Settings-Based Types
-- `Setting`: Individual setting definition
-- `SettingsDocument`: Complete settings document
 
 ### DSL Expression Types
 - `DslExpression`: Recursive expression tree node with operations, arguments, and XPath
@@ -135,7 +112,7 @@ The project uses Python dataclasses for type safety:
 - `DslComparison`: Comparison between two expressions
 
 ### Result Types
-- `ValidationResult`: Result of a single validation check (supports both simple and per-node results)
+- `ValidationResult`: Result of a single DSL validation check (supports per-node results)
 - `NodeValidationResult`: Individual node result for nodeValidation rules
 - `InspectionReport`: Complete inspection report with summary and results
 

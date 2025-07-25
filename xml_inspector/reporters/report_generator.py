@@ -36,17 +36,15 @@ class ReportGenerator:
         self,
         results: List[ValidationResult],
         xml_files: List[str],
-        settings_documents: List[str],
-        entity_type: str
+        dsl_documents: List[str]
     ) -> InspectionReport:
         """
-        Generate an inspection report from validation results.
+        Generate an inspection report from DSL validation results.
         
         Args:
             results: List of validation results
             xml_files: List of XML file paths that were validated
-            settings_documents: List of settings document paths used
-            entity_type: Type of entity being validated
+            dsl_documents: List of DSL document paths used
             
         Returns:
             InspectionReport object
@@ -54,9 +52,8 @@ class ReportGenerator:
         summary = self._generate_summary(results)
         metadata = ReportMetadata(
             timestamp=datetime.now().isoformat(),
-            entity_type=entity_type,
             xml_files=xml_files,
-            settings_documents=settings_documents
+            dsl_documents=dsl_documents
         )
         
         return InspectionReport(
