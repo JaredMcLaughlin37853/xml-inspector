@@ -1,46 +1,14 @@
-"""Type definitions for XML Inspector."""
+"""Type definitions for XML Inspector DSL validation."""
 
-from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Union, Any, Literal
-from datetime import datetime
+from dataclasses import dataclass
+from typing import List, Optional, Union, Any, Literal
 
-SettingType = Literal["string", "number", "boolean"]
 ValidationStatus = Literal["pass", "fail", "missing"]
 DslValidationType = Literal["existence", "pattern", "range", "comparison", "computedComparison", "nodeValidation"]
 DslSeverity = Literal["error", "warning", "info"]
 DslDataType = Literal["string", "integer", "decimal", "date"]
 DslComparisonOperator = Literal["==", "!=", ">", "<", ">=", "<=", "between"]
 DslConditionType = Literal["exists", "attributeEquals"]
-
-
-@dataclass
-class Setting:
-    """Represents a single setting to be validated."""
-    
-    name: str
-    xpath: str
-    expected_value: Optional[Union[str, int, float, bool]] = None
-    description: Optional[str] = None
-    required: bool = True
-    type: SettingType = "string"
-
-
-@dataclass
-class SettingsMetadata:
-    """Metadata for settings documents."""
-    
-    version: Optional[str] = None
-    description: Optional[str] = None
-    author: Optional[str] = None
-
-
-@dataclass
-class SettingsDocument:
-    """Represents a complete settings document."""
-    
-    entity_type: str
-    settings: List[Setting]
-    metadata: Optional[SettingsMetadata] = None
 
 
 @dataclass
@@ -57,9 +25,10 @@ class NodeValidationResult:
 
 @dataclass
 class ValidationResult:
-    """Result of validating a single setting."""
+    """Result of validating a DSL rule."""
     
-    setting_name: str
+    rule_id: str
+    rule_description: str
     xpath: str
     expected_value: Optional[Union[str, int, float, bool]]
     actual_value: Optional[Union[str, int, float, bool]]
@@ -85,9 +54,8 @@ class ReportMetadata:
     """Metadata for inspection reports."""
     
     timestamp: str
-    entity_type: str
     xml_files: List[str]
-    settings_documents: List[str]
+    dsl_documents: List[str]
 
 
 @dataclass
@@ -108,7 +76,6 @@ class XmlFile:
 
 
 # Type aliases for convenience
-SettingValue = Union[str, int, float, bool]
 ValidationResults = List[ValidationResult]
 
 
