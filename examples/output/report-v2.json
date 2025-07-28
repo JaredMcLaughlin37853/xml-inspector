@@ -1,0 +1,63 @@
+{
+  "summary": {
+    "total_checks": 1,
+    "passed": 1,
+    "failed": 0,
+    "missing": 0
+  },
+  "results": [
+    {
+      "rule_id": "count_binary_input_per_dca_record",
+      "rule_description": "For each DCA CONFIGURATION record, count total Binary Input points using mapping",
+      "xpath": "//B023_CFG/Record",
+      "expected_value": "All nodes should pass validation",
+      "actual_value": "4/4 nodes passed",
+      "status": "pass",
+      "message": "Node validation: 4 passed, 0 failed",
+      "file_path": "examples/xml-files/FLANDERH.xml",
+      "node_results": [
+        {
+          "node_index": 0,
+          "node_xpath": "//B023_CFG/Record[1]",
+          "actual_value": 51.0,
+          "expected_value": 51,
+          "status": "pass",
+          "message": "Node 1: PASS"
+        },
+        {
+          "node_index": 1,
+          "node_xpath": "//B023_CFG/Record[2]",
+          "actual_value": 51.0,
+          "expected_value": 51,
+          "status": "pass",
+          "message": "Node 2: PASS"
+        },
+        {
+          "node_index": 2,
+          "node_xpath": "//B023_CFG/Record[3]",
+          "actual_value": 35.0,
+          "expected_value": 35,
+          "status": "pass",
+          "message": "Node 3: PASS"
+        },
+        {
+          "node_index": 3,
+          "node_xpath": "//B023_CFG/Record[4]",
+          "actual_value": 19.0,
+          "expected_value": 19,
+          "status": "pass",
+          "message": "Node 4: PASS"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "timestamp": "2025-07-28T16:22:57.451383",
+    "xml_files": [
+      "examples/xml-files/FLANDERH.xml"
+    ],
+    "dsl_documents": [
+      "examples/settings/d20me-settings-v2.json"
+    ]
+  }
+}
