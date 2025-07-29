@@ -100,9 +100,9 @@ class ReportGenerator:
     def _generate_summary(self, results: List[ValidationResult]) -> ValidationSummary:
         """Generate summary statistics from validation results."""
         total_checks = len(results)
-        passed = sum(1 for r in results if r.result.status == "pass")
-        failed = sum(1 for r in results if r.result.status == "fail")
-        missing = sum(1 for r in results if r.result.status == "missing")
+        passed = sum(1 for r in results if self._extract_status(r.result) == "pass")
+        failed = sum(1 for r in results if self._extract_status(r.result) == "fail")
+        missing = sum(1 for r in results if self._extract_status(r.result) == "missing")
         
         return ValidationSummary(
             total_checks=total_checks,
@@ -110,6 +110,66 @@ class ReportGenerator:
             failed=failed,
             missing=missing
         )
+    
+    def _extract_status(self, result) -> str:
+        """
+        Extract status from result object, supporting various custom formats.
+        
+        Args:
+            result: Result object in any custom format
+            
+        Returns:
+            Status string ("pass", "fail", or "missing")
+        """
+        # Handle dictionary format with status field
+        if isinstance(result, dict):
+            if 'status' in result:
+                return result['status']
+            # Handle legacy formats with overall_status
+            elif 'overall_status' in result:
+                status = result['overall_status'].lower()
+                if status in ['pass', 'passed']:
+                    return "pass"
+                elif status in ['fail', 'failed', 'error']:
+                    return "fail"
+                else:
+                    return "missing"
+        
+        # Handle objects with status attribute
+        if hasattr(result, 'status'):
+            return result.status
+        
+        # Default to fail if status cannot be determined
+        return "fail"
+    
+    def _extract_message(self, result) -> str:
+        """Extract message from result object, supporting various formats."""
+        # Handle dictionary format
+        if isinstance(result, dict):
+            if 'message' in result:
+                return result['message']
+            elif 'error' in result:
+                return result['error']
+        
+        # Handle objects with message attribute
+        if hasattr(result, 'message'):
+            return result.message
+        
+        return "No message available"
+    
+    def _get_result_display_value(self, result) -> str:
+        """Get a display-friendly representation of the result."""
+        # Handle dictionary format - look for common value fields
+        if isinstance(result, dict):
+            # Try common field names
+            for field in ['returned_value', 'calculated_points', 'value', 'result']:
+                if field in result:
+                    return str(result[field])
+            # If it's a complex dictionary, show a summary
+            return f"Complex result ({len(result)} fields)"
+        
+        # For other formats, convert to string
+        return str(result)
     
     def _save_json_report(self, report: InspectionReport, output_path: Path) -> None:
         """Save report as JSON file."""
@@ -136,10 +196,10 @@ class ReportGenerator:
     
     def _generate_html_content(self, report: InspectionReport) -> str:
         """Generate HTML content for the report."""
-        # Separate results by status
-        passed_results = [r for r in report.results if r.result.status == "pass"]
-        failed_results = [r for r in report.results if r.result.status == "fail"]
-        missing_results = [r for r in report.results if r.result.status == "missing"]
+        # Separate results by status using flexible status extraction
+        passed_results = [r for r in report.results if self._extract_status(r.result) == "pass"]
+        failed_results = [r for r in report.results if self._extract_status(r.result) == "fail"]
+        missing_results = [r for r in report.results if self._extract_status(r.result) == "missing"]
         
         # Format timestamp for display
         try:
@@ -245,11 +305,8 @@ class ReportGenerator:
             <div class="setting-details">
                 <div class="file-path">{{ result.file_path }}</div>
                 <div><strong>Rule ID:</strong> {{ result.rule_id }}</div>
-                <div><strong>Expected:</strong> {{ result.result.expected_value.value if result.result.expected_value else 'N/A' }}</div>
-                <div><strong>Actual:</strong> {{ result.result.returned_value.value if result.result.returned_value else 'N/A' }}</div>
-                {% if result.result.message %}
-                <div><strong>Message:</strong> {{ result.result.message }}</div>
-                {% endif %}
+                <div><strong>Result:</strong> {{ get_result_display_value(result.result) }}</div>
+                <div><strong>Message:</strong> {{ extract_message(result.result) }}</div>
             </div>
         </div>
         {% endfor %}
@@ -265,9 +322,7 @@ class ReportGenerator:
             <div class="setting-details">
                 <div class="file-path">{{ result.file_path }}</div>
                 <div><strong>Rule ID:</strong> {{ result.rule_id }}</div>
-                {% if result.result.message %}
-                <div><strong>Message:</strong> {{ result.result.message }}</div>
-                {% endif %}
+                <div><strong>Message:</strong> {{ extract_message(result.result) }}</div>
             </div>
         </div>
         {% endfor %}
@@ -283,7 +338,7 @@ class ReportGenerator:
             <div class="setting-details">
                 <div class="file-path">{{ result.file_path }}</div>
                 <div><strong>Rule ID:</strong> {{ result.rule_id }}</div>
-                <div><strong>Value:</strong> {{ result.result.returned_value.value if result.result.returned_value else 'N/A' }}</div>
+                <div><strong>Result:</strong> {{ get_result_display_value(result.result) }}</div>
             </div>
         </div>
         {% endfor %}
@@ -299,5 +354,7 @@ class ReportGenerator:
             formatted_timestamp=formatted_timestamp,
             failed_results=failed_results,
             missing_results=missing_results,
-            passed_results=passed_results
+            passed_results=passed_results,
+            extract_message=self._extract_message,
+            get_result_display_value=self._get_result_display_value
         )

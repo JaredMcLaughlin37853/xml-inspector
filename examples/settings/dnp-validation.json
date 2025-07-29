@@ -1,0 +1,12 @@
+{
+  "validationRules": [
+    "analog_input_16_validation"
+  ],
+  "_comments": {
+    "description": "DNP DCA validation settings using actual registered function",
+    "usage": "xml-inspector inspect -x device-config.xml -s dnp-validation.json",
+    "registered_rules": {
+      "analog_input_16_validation": "Validates Analog Input 16 point counts between DCA Configuration and DCA Configuration List"
+    }
+  }
+}

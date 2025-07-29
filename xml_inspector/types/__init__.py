@@ -6,32 +6,13 @@ from typing import List, Optional, Union, Any, Literal, Callable
 ValidationStatus = Literal["pass", "fail", "missing"]
 Severity = Literal["error", "warning", "info"]
 
-
-@dataclass
-class Value:
-    """Represents a typed value from XML validation."""
-    
-    type: str
-    value: Any
-
-
-@dataclass
-class Result:
-    """Result of a validation performed on an XML file."""
-    
-    status: ValidationStatus  # "pass", "fail", or "missing"
-    returned_value: Optional[Value]
-    expected_value: Optional[Value]
-    message: Optional[str] = None
-
-
 @dataclass
 class ValidationResult:
     """Result of validating a Python validation rule."""
     
     rule_id: str
     rule_description: str
-    result: Result
+    result: Any  # Custom result format determined by validation function
     file_path: str
     severity: Severity = "error"
 
@@ -78,7 +59,7 @@ class PythonValidationRule:
     
     id: str
     description: str
-    validation_function: Callable[[XmlFile], Result]
+    validation_function: Callable[[XmlFile], Any]  # Function can return any format
     severity: Severity = "error"
 
 
@@ -91,4 +72,4 @@ class ValidationSettings:
 
 # Type aliases for convenience
 ValidationResults = List[ValidationResult]
-ValidationFunction = Callable[[XmlFile], Result]
+ValidationFunction = Callable[[XmlFile], Any]  # Function can return any format

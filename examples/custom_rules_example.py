@@ -9,11 +9,12 @@ This file demonstrates how to:
 
 from xml_inspector import XmlInspector
 from xml_inspector.core.inspector import InspectionOptions
-from xml_inspector.types import XmlFile, Result, Value
+from xml_inspector.types import XmlFile
+from typing import Dict, Any
 # No built-in validation rules to import
 
 
-def check_required_elements(xml_file: XmlFile) -> Result:
+def check_required_elements(xml_file: XmlFile) -> Dict[str, Any]:
     """
     Custom rule: Check that required XML elements are present.
     """
@@ -34,30 +35,31 @@ def check_required_elements(xml_file: XmlFile) -> Result:
                 missing_elements.append(xpath.replace("//", ""))
         
         if missing_elements:
-            return Result(
-                status="fail",
-                returned_value=Value(type="list", value=missing_elements),
-                expected_value=Value(type="string", value="All required elements present"),
-                message=f"Missing required elements: {', '.join(missing_elements)}"
-            )
+            return {
+                "status": "fail",
+                "validation_type": "required_elements_check",
+                "missing_elements": missing_elements,
+                "required_elements": [elem.replace("//", "") for elem in required_elements],
+                "message": f"Missing required elements: {', '.join(missing_elements)}"
+            }
         else:
-            return Result(
-                status="pass",
-                returned_value=Value(type="string", value="All required elements found"),
-                expected_value=Value(type="string", value="All required elements present"),
-                message="All required elements are present"
-            )
+            return {
+                "status": "pass",
+                "validation_type": "required_elements_check", 
+                "found_elements": [elem.replace("//", "") for elem in required_elements],
+                "message": "All required elements are present"
+            }
             
     except Exception as e:
-        return Result(
-            status="fail",
-            returned_value=None,
-            expected_value=None,
-            message=f"Validation error: {e}"
-        )
+        return {
+            "status": "fail",
+            "validation_type": "required_elements_check",
+            "error": str(e),
+            "message": f"Validation error: {e}"
+        }
 
 
-def validate_numeric_ranges(xml_file: XmlFile) -> Result:
+def validate_numeric_ranges(xml_file: XmlFile) -> Dict[str, Any]:
     """
     Custom rule: Check that numeric values fall within expected ranges.
     """
@@ -88,30 +90,32 @@ def validate_numeric_ranges(xml_file: XmlFile) -> Result:
                 validation_errors.append(f"Non-numeric percentage value: {pct_text}")
         
         if validation_errors:
-            return Result(
-                status="fail",
-                returned_value=Value(type="list", value=validation_errors),
-                expected_value=Value(type="string", value="All numeric values in valid ranges"),
-                message=f"Found {len(validation_errors)} numeric range violations"
-            )
+            return {
+                "status": "fail",
+                "validation_type": "numeric_ranges_check",
+                "validation_errors": validation_errors,
+                "error_count": len(validation_errors),
+                "message": f"Found {len(validation_errors)} numeric range violations"
+            }
         else:
-            return Result(
-                status="pass",
-                returned_value=Value(type="string", value="All numeric values valid"),
-                expected_value=Value(type="string", value="All numeric values in valid ranges"),
-                message="All numeric values are within expected ranges"
-            )
+            return {
+                "status": "pass",
+                "validation_type": "numeric_ranges_check",
+                "ports_checked": len(root.xpath("//Port/text()")),
+                "percentages_checked": len(root.xpath("//Percentage/text()")),
+                "message": "All numeric values are within expected ranges"
+            }
             
     except Exception as e:
-        return Result(
-            status="fail",
-            returned_value=None,
-            expected_value=None,
-            message=f"Validation error: {e}"
-        )
+        return {
+            "status": "fail",
+            "validation_type": "numeric_ranges_check",
+            "error": str(e),
+            "message": f"Validation error: {e}"
+        }
 
 
-def check_attribute_consistency(xml_file: XmlFile) -> Result:
+def check_attribute_consistency(xml_file: XmlFile) -> Dict[str, Any]:
     """
     Custom rule: Verify that related attributes have consistent values.
     """
@@ -138,27 +142,28 @@ def check_attribute_consistency(xml_file: XmlFile) -> Result:
                     consistency_errors.append(f"Invalid deviceCount attribute: {device_count_attr}")
         
         if consistency_errors:
-            return Result(
-                status="fail",
-                returned_value=Value(type="list", value=consistency_errors),
-                expected_value=Value(type="string", value="All attributes consistent"),
-                message=f"Found {len(consistency_errors)} consistency issues"
-            )
+            return {
+                "status": "fail",
+                "validation_type": "attribute_consistency_check",
+                "consistency_errors": consistency_errors,
+                "error_count": len(consistency_errors),
+                "message": f"Found {len(consistency_errors)} consistency issues"
+            }
         else:
-            return Result(
-                status="pass",
-                returned_value=Value(type="string", value="All attributes consistent"),
-                expected_value=Value(type="string", value="All attributes consistent"),
-                message="All related attributes are consistent"
-            )
+            return {
+                "status": "pass",
+                "validation_type": "attribute_consistency_check",
+                "configurations_checked": len(root.xpath("//Configuration")),
+                "message": "All related attributes are consistent"
+            }
             
     except Exception as e:
-        return Result(
-            status="fail",
-            returned_value=None,
-            expected_value=None,
-            message=f"Validation error: {e}"
-        )
+        return {
+            "status": "fail",
+            "validation_type": "attribute_consistency_check",
+            "error": str(e),
+            "message": f"Validation error: {e}"
+        }
 
 
 def main():

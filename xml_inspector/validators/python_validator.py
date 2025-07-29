@@ -4,7 +4,7 @@ import logging
 from typing import Dict, List
 
 from ..types import (
-    XmlFile, ValidationResult, Result, Value, 
+    XmlFile, ValidationResult,
     PythonValidationRule, ValidationFunction
 )
 
@@ -41,7 +41,7 @@ class PythonValidator:
         Args:
             rule_id: Unique identifier for the rule
             description: Human-readable description
-            validation_function: Function that takes XmlFile and returns Result
+            validation_function: Function that takes XmlFile and returns any format
             severity: Severity level (error, warning, info)
         """
         rule = PythonValidationRule(
@@ -84,12 +84,10 @@ class PythonValidator:
                 except Exception as e:
                     logger.error(f"Failed to validate rule {rule_id} for file {xml_file.path}: {e}")
                     # Create a failed result for the error
-                    error_result = Result(
-                        status="fail",
-                        returned_value=None,
-                        expected_value=None,
-                        message=f"Validation error: {e}"
-                    )
+                    error_result = {
+                        "status": "fail",
+                        "message": f"Validation error: {e}"
+                    }
                     results.append(ValidationResult(
                         rule_id=rule_id,
                         rule_description=self.registered_rules[rule_id].description,
@@ -121,12 +119,10 @@ class PythonValidator:
                 severity=rule.severity
             )
         except Exception as e:
-            error_result = Result(
-                status="fail",
-                returned_value=None,
-                expected_value=None,
-                message=f"Rule validation failed: {e}"
-            )
+            error_result = {
+                "status": "fail",
+                "message": f"Rule validation failed: {e}"
+            }
             return ValidationResult(
                 rule_id=rule.id,
                 rule_description=rule.description,

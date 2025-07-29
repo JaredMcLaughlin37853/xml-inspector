@@ -1,0 +1,14 @@
+{
+  "validation_functions": [
+    {
+      "id": "analog_input_16_validation",
+      "module": "examples/validation-functions/analog_input_16_validator.py",
+      "function": "validate_analog_input_16_points_adapted",
+      "description": "Validates Analog Input 16 point counts between DCA Configuration and DCA Configuration List",
+      "severity": "error"
+    }
+  ],
+  "function_paths": [
+    "examples/validation-functions"
+  ]
+}
