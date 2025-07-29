@@ -1,6 +1,0 @@
-{
-  "validationRules": [
-    "validate_required_elements",
-    "validate_numeric_ranges"
-  ]
-}
