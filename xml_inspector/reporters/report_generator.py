@@ -36,15 +36,15 @@ class ReportGenerator:
         self,
         results: List[ValidationResult],
         xml_files: List[str],
-        dsl_documents: List[str]
+        validation_rules: List[str]
     ) -> InspectionReport:
         """
-        Generate an inspection report from DSL validation results.
+        Generate an inspection report from Python validation results.
         
         Args:
             results: List of validation results
             xml_files: List of XML file paths that were validated
-            dsl_documents: List of DSL document paths used
+            validation_rules: List of validation rule IDs used
             
         Returns:
             InspectionReport object
@@ -53,7 +53,7 @@ class ReportGenerator:
         metadata = ReportMetadata(
             timestamp=datetime.now().isoformat(),
             xml_files=xml_files,
-            dsl_documents=dsl_documents
+            validation_rules=validation_rules
         )
         
         return InspectionReport(
@@ -100,9 +100,9 @@ class ReportGenerator:
     def _generate_summary(self, results: List[ValidationResult]) -> ValidationSummary:
         """Generate summary statistics from validation results."""
         total_checks = len(results)
-        passed = sum(1 for r in results if r.status == "pass")
-        failed = sum(1 for r in results if r.status == "fail")
-        missing = sum(1 for r in results if r.status == "missing")
+        passed = sum(1 for r in results if r.result.status == "pass")
+        failed = sum(1 for r in results if r.result.status == "fail")
+        missing = sum(1 for r in results if r.result.status == "missing")
         
         return ValidationSummary(
             total_checks=total_checks,
@@ -137,9 +137,9 @@ class ReportGenerator:
     def _generate_html_content(self, report: InspectionReport) -> str:
         """Generate HTML content for the report."""
         # Separate results by status
-        passed_results = [r for r in report.results if r.status == "pass"]
-        failed_results = [r for r in report.results if r.status == "fail"]
-        missing_results = [r for r in report.results if r.status == "missing"]
+        passed_results = [r for r in report.results if r.result.status == "pass"]
+        failed_results = [r for r in report.results if r.result.status == "fail"]
+        missing_results = [r for r in report.results if r.result.status == "missing"]
         
         # Format timestamp for display
         try:
@@ -241,14 +241,14 @@ class ReportGenerator:
         <h2 class="fail">Failed Checks ({{ failed_results|length }})</h2>
         {% for result in failed_results %}
         <div class="result-item result-fail">
-            <div class="setting-name">{{ result.setting_name }}</div>
+            <div class="setting-name">{{ result.rule_description }}</div>
             <div class="setting-details">
                 <div class="file-path">{{ result.file_path }}</div>
-                <div><strong>XPath:</strong> {{ result.xpath }}</div>
-                <div><strong>Expected:</strong> {{ result.expected_value if result.expected_value is not none else 'N/A' }}</div>
-                <div><strong>Actual:</strong> {{ result.actual_value if result.actual_value is not none else 'N/A' }}</div>
-                {% if result.message %}
-                <div><strong>Message:</strong> {{ result.message }}</div>
+                <div><strong>Rule ID:</strong> {{ result.rule_id }}</div>
+                <div><strong>Expected:</strong> {{ result.result.expected_value.value if result.result.expected_value else 'N/A' }}</div>
+                <div><strong>Actual:</strong> {{ result.result.returned_value.value if result.result.returned_value else 'N/A' }}</div>
+                {% if result.result.message %}
+                <div><strong>Message:</strong> {{ result.result.message }}</div>
                 {% endif %}
             </div>
         </div>
@@ -261,12 +261,12 @@ class ReportGenerator:
         <h2 class="missing">Missing Settings ({{ missing_results|length }})</h2>
         {% for result in missing_results %}
         <div class="result-item result-missing">
-            <div class="setting-name">{{ result.setting_name }}</div>
+            <div class="setting-name">{{ result.rule_description }}</div>
             <div class="setting-details">
                 <div class="file-path">{{ result.file_path }}</div>
-                <div><strong>XPath:</strong> {{ result.xpath }}</div>
-                {% if result.message %}
-                <div><strong>Message:</strong> {{ result.message }}</div>
+                <div><strong>Rule ID:</strong> {{ result.rule_id }}</div>
+                {% if result.result.message %}
+                <div><strong>Message:</strong> {{ result.result.message }}</div>
                 {% endif %}
             </div>
         </div>
@@ -279,11 +279,11 @@ class ReportGenerator:
         <h2 class="pass">Passed Checks ({{ passed_results|length }})</h2>
         {% for result in passed_results %}
         <div class="result-item result-pass">
-            <div class="setting-name">{{ result.setting_name }}</div>
+            <div class="setting-name">{{ result.rule_description }}</div>
             <div class="setting-details">
                 <div class="file-path">{{ result.file_path }}</div>
-                <div><strong>XPath:</strong> {{ result.xpath }}</div>
-                <div><strong>Value:</strong> {{ result.actual_value if result.actual_value is not none else 'N/A' }}</div>
+                <div><strong>Rule ID:</strong> {{ result.rule_id }}</div>
+                <div><strong>Value:</strong> {{ result.result.returned_value.value if result.result.returned_value else 'N/A' }}</div>
             </div>
         </div>
         {% endfor %}

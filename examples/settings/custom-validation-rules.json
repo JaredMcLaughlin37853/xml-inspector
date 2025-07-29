@@ -1,0 +1,17 @@
+{
+  "validationRules": [
+    "check_required_elements",
+    "validate_numeric_ranges",
+    "check_attribute_consistency"
+  ],
+  "_comments": {
+    "description": "Example validation settings with custom rules",
+    "usage": "xml-inspector inspect -x data.xml -s custom-validation-rules.json",
+    "custom_rules": {
+      "check_required_elements": "Validates that required XML elements are present",
+      "validate_numeric_ranges": "Checks that numeric values fall within expected ranges",
+      "check_attribute_consistency": "Verifies that related attributes have consistent values"
+    },
+    "note": "All rules must be registered with validator.register_function() before use"
+  }
+}

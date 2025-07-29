@@ -1,18 +1,18 @@
 # XML Inspector
 
-A comprehensive quality assurance tool for XML files that validates configuration settings against standardized requirements. XML Inspector compares XML content with reference documents to identify compliance issues and generate detailed reports.
+A comprehensive quality assurance tool for XML files that validates configuration settings using Python-based validation functions. XML Inspector executes custom Python validation logic against XML content to identify compliance issues and generate detailed reports.
 
 ## Features
 
 - ✅ **XML Validation**: Parse and validate XML files using XPath expressions
-- 🚀 **DSL (Domain Specific Language)**: Powerful expression-based validation with dynamic XPath, map operations, and complex computations
-- 🔍 **Type-Aware Validation**: Automatic conversion and validation of strings, numbers, booleans, and dates
+- 🐍 **Python-Based Validation**: Write custom validation logic in Python functions for maximum flexibility
+- 🔧 **Built-in DNP Rules**: Pre-built validation rules for DNP3 protocol configurations
 - 📊 **Rich Reporting**: Generate detailed reports in JSON and HTML formats
-- 🎯 **Project-Specific Rules**: Merge standard and project-specific validation requirements
-- 🧮 **Advanced Operations**: Count, sum, average, arithmetic, logical operations, and iterative processing
+- 🎯 **Modular Rule System**: Register and manage validation rules with unique identifiers
+- 🔍 **Advanced Logic**: Implement complex validation scenarios with full Python capabilities
 - 🐍 **Python Library**: Use programmatically in your Python applications
 - 💻 **CLI Interface**: Easy-to-use command-line tool with colored output
-- 🧪 **Comprehensive Testing**: Full test suite with extensive DSL validation coverage
+- 🧪 **Comprehensive Testing**: Full test suite with extensive validation coverage
 
 ## Installation
 
@@ -46,7 +46,7 @@ pip install -e .
 ```bash
 xml-inspector inspect \
   --xml examples/test-data.xml \
-  --standard examples/dsl-example.json
+  --settings examples/validation-rules.json
 ```
 
 ### 2. Generate HTML Report
@@ -54,7 +54,7 @@ xml-inspector inspect \
 ```bash
 xml-inspector inspect \
   --xml examples/test-data.xml \
-  --standard examples/dsl-example.json \
+  --settings examples/validation-rules.json \
   --output report.html \
   --format html
 ```
@@ -63,7 +63,7 @@ xml-inspector inspect \
 
 ```bash
 xml-inspector validate-settings \
-  --file examples/dsl-example.json
+  --file examples/validation-rules.json
 ```
 
 ## Usage
@@ -79,9 +79,7 @@ xml-inspector inspect [OPTIONS]
 
 Options:
   -x, --xml <files...>     XML files to inspect (multiple allowed)
-  -s, --standard <file>    Standard DSL validation document (JSON/YAML)
-  -p, --project <file>     Project-specific DSL validation document (optional)
-  -t, --type <entityType>  Entity type for validation (optional)
+  -s, --settings <file>    Validation settings document (JSON format)
   -o, --output <file>      Output file path for report
   -f, --format <format>    Output format: json|html (default: json)
   -v, --verbose            Enable verbose output
@@ -94,7 +92,7 @@ Options:
 xml-inspector validate-settings [OPTIONS]
 
 Options:
-  -f, --file <file>    DSL validation document to validate
+  -f, --file <file>    Validation settings document to validate (JSON format)
   --help               Show help message
 ```
 
@@ -112,9 +110,7 @@ inspector = XmlInspector()
 # Configure inspection
 options = InspectionOptions(
     xml_files=["path/to/config.xml"],
-    standard_settings_file="path/to/dsl-validation.json",
-    project_settings_file="path/to/project-validation.yaml",  # Optional
-    entity_type="",  # Optional for DSL
+    settings_file="path/to/validation-rules.json",
     output_path="report.json",
     output_format="json"
 )
@@ -131,92 +127,281 @@ print(f"Missing: {report.summary.missing}")
 
 ## Configuration
 
-### DSL Validation Document Structure
+### Validation Settings Document Structure
 
-XML Inspector uses a powerful DSL format for defining validation rules with advanced operations:
+XML Inspector uses a simple JSON format that references Python validation functions:
 
 ```json
 {
-  "validationSettings": [
-    {
-      "id": "count_items",
-      "description": "Count total number of items",
-      "type": "existence",
-      "severity": "error",
-      "expression": {
-        "op": "count",
-        "xpath": "//Item"
-      }
-    },
-    {
-      "id": "sum_prices",
-      "description": "Sum all item prices should be greater than 100",
-      "type": "comparison", 
-      "severity": "warning",
-      "expression": {
-        "op": "sum",
-        "xpath": "//Item/@price",
-        "dataType": "decimal"
-      },
-      "operator": ">",
-      "value": 100
-    },
-    {
-      "id": "map_calculation",
-      "description": "Calculate total value using map (quantity * price)",
-      "type": "computedComparison",
-      "severity": "error",
-      "comparison": {
-        "operator": ">",
-        "leftExpression": {
-          "op": "sum",
-          "args": [
-            {
-              "op": "map",
-              "xpath": "//Item",
-              "expression": {
-                "op": "multiply",
-                "args": [
-                  { "op": "value", "xpath": "@quantity", "dataType": "decimal" },
-                  { "op": "value", "xpath": "@price", "dataType": "decimal" }
-                ]
-              }
-            }
-          ]
-        },
-        "rightExpression": {
-          "op": "literal",
-          "value": 500
-        }
-      }
-    }
+  "validationRules": [
+    "validate_required_elements",
+    "validate_numeric_ranges",
+    "custom_validation_rule"
   ]
 }
 ```
 
-#### DSL Validation Rule Types
+### Writing Custom Python Validation Functions
 
-- **existence**: Check if expression result exists/is truthy
-- **pattern**: Match expression result against regex pattern  
-- **range**: Validate expression result is within min/max range
-- **comparison**: Compare expression result with fixed value
-- **computedComparison**: Compare two expressions or use between operator
+Create Python functions that take an `XmlFile` and return a `Result`:
 
-#### DSL Expression Operations
+```python
+from xml_inspector.types import XmlFile, Result, Value
 
-- **Basic**: `count`, `sum`, `average`, `value`, `literal`
-- **Arithmetic**: `add`, `subtract`, `multiply`, `divide`
-- **Logic**: `if`, `and`, `or`, `not`
-- **Comparison**: `==`, `!=`, `>`, `<`, `>=`, `<=`
-- **String**: `concat`
-- **Advanced**: `map` (iterate over nodes and apply expression per node)
+def validate_custom_rule(xml_file: XmlFile) -> Result:
+    """Custom validation logic."""
+    try:
+        root = xml_file.content
+        
+        # Your validation logic using XPath, calculations, etc.
+        items = root.xpath("//Item")
+        
+        if len(items) > 0:
+            return Result(
+                status="pass",
+                returned_value=Value(type="count", value=len(items)),
+                expected_value=Value(type="string", value="Items should exist"),
+                message=f"Found {len(items)} items"
+            )
+        else:
+            return Result(
+                status="fail",
+                returned_value=Value(type="count", value=0),
+                expected_value=Value(type="string", value="Items should exist"),
+                message="No items found"
+            )
+            
+    except Exception as e:
+        return Result(
+            status="fail",
+            returned_value=None,
+            expected_value=None,
+            message=f"Validation error: {e}"
+        )
 
-#### DSL Features
+# Register the function
+validator.register_function(
+    rule_id="custom_validation_rule",
+    description="Check that items exist in XML",
+    validation_function=validate_custom_rule,
+    severity="error"
+)
+```
 
-- **Dynamic XPath**: Use `xpathExpression` instead of `xpath` to compute XPath strings dynamically
-- **Conditional Rules**: Add `conditions` array to control when rules apply
-- **Type Conversion**: Automatic handling of `string`, `integer`, `decimal`, `date` types
-- **Nested Expressions**: Build complex validation logic with recursive expression trees
+### Custom Validation Rules
+
+XML Inspector uses a pure Python-based validation system where all validation logic is implemented as custom Python functions. There are no built-in validation rules - users implement their own validation functions tailored to their specific XML validation needs.
+
+### Creating and Using Custom Validation Functions
+
+#### Step 1: Write Your Custom Validation Function
+
+Create a Python file with your validation logic:
+
+```python
+# custom_validators.py
+from xml_inspector.types import XmlFile, Result, Value
+
+def validate_required_attributes(xml_file: XmlFile) -> Result:
+    """Check that all Device elements have required attributes."""
+    try:
+        root = xml_file.content
+        devices = root.xpath("//Device")
+        
+        required_attrs = ["id", "name", "type"]
+        missing_attrs = []
+        
+        for i, device in enumerate(devices):
+            for attr in required_attrs:
+                if not device.get(attr):
+                    missing_attrs.append(f"Device {i}: missing '{attr}' attribute")
+        
+        if missing_attrs:
+            return Result(
+                status="fail",
+                returned_value=Value(type="list", value=missing_attrs),
+                expected_value=Value(type="string", value="All required attributes present"),
+                message=f"Found {len(missing_attrs)} missing attributes"
+            )
+        else:
+            return Result(
+                status="pass",
+                returned_value=Value(type="string", value="All attributes present"),
+                expected_value=Value(type="string", value="All required attributes present"),
+                message="All devices have required attributes"
+            )
+            
+    except Exception as e:
+        return Result(
+            status="fail",
+            returned_value=None,
+            expected_value=None,
+            message=f"Validation error: {e}"
+        )
+
+def validate_numeric_ranges(xml_file: XmlFile) -> Result:
+    """Check that Port values are within valid range (1-65535)."""
+    try:
+        root = xml_file.content
+        ports = root.xpath("//Port/text()")
+        invalid_ports = []
+        
+        for port_text in ports:
+            try:
+                port = int(port_text)
+                if port < 1 or port > 65535:
+                    invalid_ports.append(f"Port {port} out of range")
+            except ValueError:
+                invalid_ports.append(f"Invalid port value: {port_text}")
+        
+        if invalid_ports:
+            return Result(
+                status="fail",
+                returned_value=Value(type="list", value=invalid_ports),
+                expected_value=Value(type="string", value="All ports in range 1-65535"),
+                message=f"Found {len(invalid_ports)} invalid ports"
+            )
+        else:
+            return Result(
+                status="pass",
+                returned_value=Value(type="string", value="All ports valid"),
+                expected_value=Value(type="string", value="All ports in range 1-65535"),
+                message="All port values are valid"
+            )
+            
+    except Exception as e:
+        return Result(
+            status="fail",
+            returned_value=None,
+            expected_value=None,
+            message=f"Validation error: {e}"
+        )
+```
+
+#### Step 2: Create Your Settings JSON
+
+Reference your custom rules by ID:
+
+```json
+{
+  "validationRules": [
+    "validate_required_attributes",
+    "validate_numeric_ranges"
+  ]
+}
+```
+
+#### Step 3: Register and Use Your Custom Functions
+
+```python
+from xml_inspector import XmlInspector
+from xml_inspector.core.inspector import InspectionOptions
+from custom_validators import validate_required_attributes, validate_numeric_ranges
+
+# Create inspector and get validator
+inspector = XmlInspector()
+validator = inspector.get_validator()
+
+# Register your custom rules
+validator.register_function(
+    rule_id="validate_required_attributes",
+    description="Check that all Device elements have required attributes",
+    validation_function=validate_required_attributes,
+    severity="error"
+)
+
+validator.register_function(
+    rule_id="validate_numeric_ranges", 
+    description="Check that Port values are within valid range",
+    validation_function=validate_numeric_ranges,
+    severity="warning"
+)
+
+# Run inspection with custom rules
+options = InspectionOptions(
+    xml_files=["config.xml"],
+    settings_file="custom-validation.json",
+    output_path="report.html",
+    output_format="html"
+)
+
+report = inspector.inspect(options)
+print(f"Validation completed: {report.summary.passed}/{report.summary.total_checks} passed")
+```
+
+#### Step 4: Complete CLI Usage Example
+
+Since validation rules must be registered before the CLI can use them, you need to create a registration script:
+
+**Create `register_and_run.py`:**
+```python
+#!/usr/bin/env python3
+"""Register custom rules and run CLI inspection."""
+
+from xml_inspector import XmlInspector
+from xml_inspector.core.inspector import InspectionOptions
+from custom_validators import validate_required_attributes, validate_numeric_ranges
+
+def register_rules_and_inspect():
+    """Register rules and run inspection."""
+    # Create inspector and register rules
+    inspector = XmlInspector()
+    validator = inspector.get_validator()
+    
+    validator.register_function(
+        rule_id="validate_required_attributes",
+        description="Check required attributes",
+        validation_function=validate_required_attributes,
+        severity="error"
+    )
+    
+    validator.register_function(
+        rule_id="validate_numeric_ranges",
+        description="Check numeric ranges", 
+        validation_function=validate_numeric_ranges,
+        severity="warning"
+    )
+    
+    # Run inspection
+    options = InspectionOptions(
+        xml_files=["config.xml"],
+        settings_file="custom-validation.json",
+        output_path="report.html",
+        output_format="html"
+    )
+    
+    report = inspector.inspect(options)
+    print(f"Validation completed: {report.summary.passed}/{report.summary.total_checks} passed")
+
+if __name__ == "__main__":
+    register_rules_and_inspect()
+```
+
+**Run the complete workflow:**
+```bash
+# Run the registration and inspection script
+python register_and_run.py
+```
+
+**Alternative: Use pure CLI after registering rules in a separate script**
+```bash
+# Step 1: Create and run a registration script (one-time setup)
+python setup_rules.py  # Contains only validator.register_function() calls
+
+# Step 2: Use CLI commands directly
+xml-inspector inspect -x config.xml -s custom-validation.json -o report.html -f html
+xml-inspector validate-settings -f custom-validation.json
+```
+
+**Note**: The CLI can only use rules that have been registered in the current Python session. For persistent rule registration, consider creating a package with your custom rules that can be imported and registered automatically.
+
+#### Validation Function Guidelines
+
+- **Function Signature**: Must take `XmlFile` parameter and return `Result`
+- **Exception Handling**: Always wrap logic in try/catch and return appropriate `Result`
+- **Return Values**: Use `Value` objects to wrap returned data with type information
+- **Status Values**: Return "pass", "fail", or "missing" status
+- **Messages**: Provide clear, descriptive messages for both success and failure cases
 
 ### XPath Examples
 
@@ -231,15 +416,13 @@ XML Inspector uses a powerful DSL format for defining validation rules with adva
 The `examples/` directory contains:
 
 - **XML Files**: Sample XML data for testing and demonstration
-- **DSL Documents**: JSON and YAML validation rules with advanced expressions
-- **Usage Examples**: Demonstrations of various DSL features
+- **Validation Settings**: JSON files referencing Python validation rules
+- **Usage Examples**: Demonstrations of various validation scenarios
 
 ### Key Example Files
 
-- `examples/dsl-example.json` - DSL validation rules with count, sum, and map operations
-- `examples/test-data.xml` - Sample XML data for testing DSL functionality
-
-See [examples/README.md](examples/README.md) for detailed usage examples.
+- `examples/validation-rules.json` - Sample validation settings with rule references
+- `examples/test-data.xml` - Sample XML data for testing validation functions
 
 ## Development
 
@@ -284,22 +467,21 @@ mypy xml_inspector
 ```
 xml-inspector/
 ├── xml_inspector/          # Main Python package
-│   ├── core/              # Core functionality (parsing, inspection, DSL evaluation)
-│   │   ├── dsl_evaluator.py    # DSL expression evaluator
+│   ├── core/              # Core functionality (parsing, inspection)
 │   │   ├── inspector.py        # Main inspection engine
 │   │   └── xml_parser.py       # XML parsing utilities
 │   ├── parsers/           # Document parsers
-│   │   ├── dsl_parser.py       # DSL format parser
-│   │   └── settings_parser.py  # Settings document parser with auto-detection
+│   │   └── python_settings_parser.py  # Settings document parser
 │   ├── validators/        # XML validation logic
-│   │   ├── dsl_validator.py    # DSL-based validation
-│   │   └── xml_validator.py    # XML validation utilities
+│   │   └── python_validator.py    # Python-based validation
+│   ├── validation_rules/  # Built-in validation rules
+│   │   ├── dnp_validation.py   # DNP protocol validation rules
+│   │   └── __init__.py         # Rule registration
 │   ├── reporters/         # Report generation
-│   ├── types/             # Type definitions for DSL and validation
+│   ├── types/             # Type definitions for validation
 │   └── cli.py             # Command-line interface
 ├── tests/                 # Test suite
 ├── examples/              # Example files and documentation
-├── spec/                  # DSL specification and JSON schema
 ├── requirements.txt       # Production dependencies
 ├── requirements-dev.txt   # Development dependencies
 ├── setup.py              # Package configuration
