@@ -1,42 +1,39 @@
-"""Type definitions for XML Inspector DSL validation."""
+"""Type definitions for XML Inspector Python validation."""
 
 from dataclasses import dataclass
-from typing import List, Optional, Union, Any, Literal
+from typing import List, Optional, Union, Any, Literal, Callable
 
 ValidationStatus = Literal["pass", "fail", "missing"]
-DslValidationType = Literal["existence", "pattern", "range", "comparison", "computedComparison", "nodeValidation"]
-DslSeverity = Literal["error", "warning", "info"]
-DslDataType = Literal["string", "integer", "decimal", "date"]
-DslComparisonOperator = Literal["==", "!=", ">", "<", ">=", "<=", "between"]
-DslConditionType = Literal["exists", "attributeEquals"]
+Severity = Literal["error", "warning", "info"]
 
 
 @dataclass
-class NodeValidationResult:
-    """Result of validating a single node in a node validation rule."""
+class Value:
+    """Represents a typed value from XML validation."""
     
-    node_index: int
-    node_xpath: str
-    actual_value: Any
-    expected_value: Any
-    status: ValidationStatus
+    type: str
+    value: Any
+
+
+@dataclass
+class Result:
+    """Result of a validation performed on an XML file."""
+    
+    status: ValidationStatus  # "pass", "fail", or "missing"
+    returned_value: Optional[Value]
+    expected_value: Optional[Value]
     message: Optional[str] = None
 
 
 @dataclass
 class ValidationResult:
-    """Result of validating a DSL rule."""
+    """Result of validating a Python validation rule."""
     
     rule_id: str
     rule_description: str
-    xpath: str
-    expected_value: Optional[Union[str, int, float, bool]]
-    actual_value: Optional[Union[str, int, float, bool]]
-    status: ValidationStatus
-    message: Optional[str]
+    result: Result
     file_path: str
-    # For nodeValidation type rules - contains per-node results
-    node_results: Optional[List[NodeValidationResult]] = None
+    severity: Severity = "error"
 
 
 @dataclass
@@ -55,7 +52,7 @@ class ReportMetadata:
     
     timestamp: str
     xml_files: List[str]
-    dsl_documents: List[str]
+    validation_rules: List[str]
 
 
 @dataclass
@@ -75,70 +72,23 @@ class XmlFile:
     content: Any  # lxml.etree._Element
 
 
-# Type aliases for convenience
-ValidationResults = List[ValidationResult]
-
-
-# DSL Types
 @dataclass
-class DslExpression:
-    """Represents a DSL expression node."""
-    
-    op: str
-    args: Optional[List[Union['DslExpression', str, int, float, bool]]] = None
-    xpath: Optional[str] = None
-    xpath_expression: Optional['DslExpression'] = None
-    expression: Optional['DslExpression'] = None
-    value: Optional[Union[str, int, float, bool]] = None
-    data_type: Optional[DslDataType] = None
-
-
-@dataclass
-class DslCondition:
-    """Represents a condition that controls when a rule applies."""
-    
-    type: DslConditionType
-    xpath: str
-    attribute: Optional[str] = None
-    value: Optional[str] = None
-
-
-@dataclass
-class DslComparison:
-    """Represents a comparison operation between two expressions."""
-    
-    operator: DslComparisonOperator
-    left_expression: Optional[DslExpression] = None
-    right_expression: Optional[DslExpression] = None
-    lower_expression: Optional[DslExpression] = None
-    upper_expression: Optional[DslExpression] = None
-
-
-@dataclass
-class DslValidationRule:
-    """Represents a DSL validation rule."""
+class PythonValidationRule:
+    """Represents a Python validation rule."""
     
     id: str
     description: str
-    type: DslValidationType
-    severity: DslSeverity
-    conditions: Optional[List[DslCondition]] = None
-    expression: Optional[DslExpression] = None
-    pattern: Optional[str] = None
-    min_value: Optional[str] = None
-    max_value: Optional[str] = None
-    data_type: Optional[DslDataType] = None
-    operator: Optional[DslComparisonOperator] = None
-    value: Optional[Union[str, int, float]] = None
-    comparison: Optional[DslComparison] = None
-    # Fields for nodeValidation type
-    nodes_xpath: Optional[str] = None  # XPath to select the nodes to validate
-    node_value_expression: Optional[DslExpression] = None  # Expression to extract value from each node
-    expected_value_expression: Optional[DslExpression] = None  # Expression to get expected value for each node
+    validation_function: Callable[[XmlFile], Result]
+    severity: Severity = "error"
 
 
 @dataclass
-class DslValidationSettings:
-    """Container for DSL validation settings."""
+class ValidationSettings:
+    """Container for Python validation settings."""
     
-    validation_settings: List[DslValidationRule]
+    validation_rules: List[str]  # List of rule IDs to execute
+
+
+# Type aliases for convenience
+ValidationResults = List[ValidationResult]
+ValidationFunction = Callable[[XmlFile], Result]

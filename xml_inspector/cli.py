@@ -1,4 +1,4 @@
-"""Command-line interface for XML Inspector DSL validation."""
+"""Command-line interface for XML Inspector Python validation."""
 
 import sys
 from pathlib import Path
@@ -9,8 +9,9 @@ import click
 from colorama import Fore, Style, init as colorama_init
 
 from .core.inspector import XmlInspector, InspectionOptions, InspectionError
-from .parsers.settings_parser import SettingsParseError
-from .types import DslValidationSettings
+from .parsers.python_settings_parser import SettingsParseError
+from .types import ValidationSettings
+# No built-in validation rules imported
 
 # Initialize colorama for cross-platform colored output
 colorama_init(autoreset=True)
@@ -46,7 +47,7 @@ def validate_files_exist(file_paths: List[str]) -> None:
     help="Enable verbose output"
 )
 def cli(verbose: bool) -> None:
-    """XML Inspector - DSL-based quality assurance tool for XML files."""
+    """XML Inspector - Python-based quality assurance tool for XML files."""
     if verbose:
         logging.getLogger().setLevel(logging.INFO)
 
@@ -59,9 +60,9 @@ def cli(verbose: bool) -> None:
     help="XML files to inspect (can be specified multiple times)"
 )
 @click.option(
-    "--dsl", "-d",
+    "--settings", "-s",
     required=True,
-    help="DSL validation document (JSON format)"
+    help="Validation settings document (JSON format)"
 )
 @click.option(
     "--output", "-o",
@@ -75,30 +76,32 @@ def cli(verbose: bool) -> None:
 )
 def inspect(
     xml: tuple,
-    dsl: str,
+    settings: str,
     output: Optional[str],
     output_format: str
 ) -> None:
-    """Inspect XML files against DSL validation rules."""
+    """Inspect XML files against Python validation rules."""
     try:
         # Validate input files
         xml_files = list(xml)
         validate_files_exist(xml_files)
-        validate_file_exists(dsl)
+        validate_file_exists(settings)
         
-        # Create inspector and options
+        # Create inspector
         inspector = XmlInspector()
+        validator = inspector.get_validator()
+        
         options = InspectionOptions(
             xml_files=xml_files,
-            dsl_settings_file=dsl,
+            settings_file=settings,
             output_path=output,
             output_format=output_format  # type: ignore
         )
         
         # Display inspection info
-        click.echo(f"{Fore.BLUE}🔍 Starting DSL-based XML inspection...")
+        click.echo(f"{Fore.BLUE}🔍 Starting Python-based XML inspection...")
         click.echo(f"{Fore.CYAN}XML Files: {', '.join(xml_files)}")
-        click.echo(f"{Fore.CYAN}DSL Document: {dsl}")
+        click.echo(f"{Fore.CYAN}Settings Document: {settings}")
         
         # Perform inspection
         report = inspector.inspect(options)
@@ -134,38 +137,39 @@ def inspect(
 @click.option(
     "--file", "-f",
     required=True,
-    help="DSL validation document to validate (JSON format)"
+    help="Validation settings document to validate (JSON format)"
 )
 def validate_settings(file: str) -> None:
-    """Validate a DSL document structure."""
+    """Validate a settings document structure."""
     try:
         validate_file_exists(file)
         
         inspector = XmlInspector()
         
-        click.echo(f"{Fore.BLUE}🔍 Validating DSL document...")
+        click.echo(f"{Fore.BLUE}🔍 Validating settings document...")
         settings_doc = inspector.validate_settings_document(file)
         
-        click.echo(f"{Fore.GREEN}✅ DSL document is valid!")
+        click.echo(f"{Fore.GREEN}✅ Settings document is valid!")
         click.echo(f"\n{Fore.BLUE}📋 Document Info:")
-        click.echo(f"  Validation Rules Count: {len(settings_doc.validation_settings)}")
+        click.echo(f"  Validation Rules Count: {len(settings_doc.validation_rules)}")
         
-        # Show rule type breakdown
-        rule_types = {}
-        for rule in settings_doc.validation_settings:
-            rule_types[rule.type] = rule_types.get(rule.type, 0) + 1
+        # Show available rules
+        validator = inspector.get_validator()
+        available_rules = validator.get_registered_rules()
         
-        if rule_types:
-            click.echo(f"  Rule Types:")
-            for rule_type, count in rule_types.items():
-                click.echo(f"    {rule_type}: {count}")
+        click.echo(f"  Available Rules: {', '.join(available_rules)}")
+        
+        # Check for unknown rules
+        unknown_rules = [rule for rule in settings_doc.validation_rules if rule not in available_rules]
+        if unknown_rules:
+            click.echo(f"  {Fore.YELLOW}⚠️  Unknown Rules: {', '.join(unknown_rules)}")
         
     except (InspectionError, SettingsParseError) as e:
         click.echo(f"{Fore.RED}❌ Error: {e}", err=True)
         sys.exit(1)
     except Exception as e:
         click.echo(f"{Fore.RED}❌ Unexpected error: {e}", err=True)
-        logger.exception("Unexpected error during DSL validation")
+        logger.exception("Unexpected error during settings validation")
         sys.exit(1)
 
 

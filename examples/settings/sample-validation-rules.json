@@ -1,0 +1,15 @@
+{
+  "validationRules": [
+    "validate_required_elements",
+    "validate_numeric_ranges"
+  ],
+  "_comments": {
+    "description": "Example validation settings file for XML Inspector Python-based validation",
+    "usage": "xml-inspector inspect -x data.xml -s validation-rules.json",
+    "example_rules": {
+      "validate_required_elements": "Example rule that checks for required XML elements",
+      "validate_numeric_ranges": "Example rule that validates numeric values are in expected ranges"
+    },
+    "custom_rules": "All rules must be registered with the validator using validator.register_function() before use"
+  }
+}
